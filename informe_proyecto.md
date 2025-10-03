@@ -168,10 +168,7 @@ Las entidades principales que surgieron del análisis fueron:
 
 Para su mejor compresión, presentamos una imagen del diagrama entidad-relación creado utilizando la herramienta de ERDPLUS:
 
-<p align="center">
-  <img src="doc/ER Clinicks.png" alt="ER Clinicks" width="160"/>
 
-</p>
 
 ###### 2. Diseño lógico de la base de datos
 El modelo lógico se tradujo en un conjunto de tablas que responden al DER. Cada entidad conceptual se convirtió en una tabla con sus respectivos campos, tipos de datos y restricciones.
