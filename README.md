@@ -1,23 +1,26 @@
-### Proyecto: Clinicks - Sistema de Gestión de Pacientes
+# Proyecto: Clinicks - Sistema de Gestión de Pacientes
 
-#### Alumnos:
+## Grupo de alumnos:
+**Grupo:** 19
+
 - San Lorenzo Díaz, Juan Cruz - DNI N°: 46.316.672  
 - Solis, Agustina - DNI N°: 46.380.532  
 - Villarreal, Tomás Agustín - DNI N°: 46.147.515  
 - Zimerman, Benjamín - DNI N°: 43.064.294  
 
-#### Equipo Docente:
+## Equipo Docente:
 - Lic. Darío O. Villegas  
 - Lic. Walter O. Vallejos  
 - Exp. Juan José Cuzziol  
 - Lic. Numa Badaracco  
 
+## Carrera:
 **Carrera:** Licenciatura en Sistemas de Información  
 **Cátedra:** Bases de Datos I  
 **Año:** 2025  
-**Grupo:** 19
 
-# Proyecto de Estudio!
+
+## Proyecto de Estudio!
 
 Este espacio propone presentar la información para organizar el desarrollo del Proyecto de Estudio de la asignatura Bases de Datos I (FaCENA - UNNE) del grupo 19.
 
