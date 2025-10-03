@@ -168,7 +168,7 @@ Las entidades principales que surgieron del análisis fueron:
 
 Para su mejor compresión, presentamos una imagen del diagrama entidad-relación creado utilizando la herramienta de ERDPLUS:
 <p align="center">
-  <img src="doc/ER Clinicks.png" alt="DR Clinicks" width="160"/>
+  <img src="doc/ER Clinicks.png" alt="ER Clinicks" width="160"/>
 
 </p>
 
