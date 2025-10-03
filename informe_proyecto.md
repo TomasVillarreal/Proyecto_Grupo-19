@@ -143,6 +143,53 @@ En síntesis, la metodología aplicada se basó en un enfoque ordenado y progres
 </p>
 
 ---
+
+<a id="capitulo-iv-desarrollo-del-proyecto-presentacion-de-resultados"></a>
+## Capítulo IV: Desarrollo del proyecto/Presentación de Resultados
+
+<p style="text-align: justify;">
+En este capítulo se presentan los resultados obtenidos a partir del proceso metodológico desarrollado. La información se organiza en función de los objetivos planteados en el Capítulo I, con el propósito de mostrar de manera clara y objetiva el diseño de la base de datos y la implementación del sistema de gestión de pacientes en la clínica.
+
+###### 1. Diseño conceptual de la base de datos
+Como primer resultado se obtuvo el modelo conceptual, representado mediante un diagrama entidad-relación (DER) elaborado en ERD Plus. Este diagrama permite identificar las entidades principales y sus interrelaciones.
+
+Las entidades principales que surgieron del análisis fueron:
+- **Paciente:** contiene la información personal de cada paciente, como ser nombre, apellido, teléfono y dirección. También el DNI del paciente el cual será utilizado como identificador único de los mismos.
+
+- **Historial:** esta entidad contendrá el historial médico de cada uno de los pacientes. Puntualmente esta entidad en el diagrama conceptual solo contiene la fecha en la se crea el historial, ya que su contenido es derivado de la entidad Registro.
+
+- **Registro:** representa el registro clínico de cada una de las intervenciones, consultas o procedimientos que el paciente se realice en la clínica, así también como el médico u enfemero que lo atendió, el registro de uso de medicamento en caso de haber sido necesario de recetar y observaciones realizadas por los mismos profesionales.
+
+- **Medicación:** esta entidad está destinada a representar a todas las medicaciones que se le pueden recetar a un paciente, junto con el nombre de la droga y su dosis.
+
+- **Usuario:** esta entidad representa a los distintos usuarios que puede tener el sistema, como ser administrativos, médicos, enfermeros, entre otros, junto con su información personal: nombre, apelliod, email, password y el DNI como indentificador único de cada uno de ellos.
+
+- **Rol:** esta entidad permite la creación de los distintos roles que podrán hacer uso de nuestro sistema, como se hizo mención anteriormente, los principales son: admnistrativo, médico y enfermero.
+
+Para su mejor compresión, presentamos una imagen del diagrama entidad-relación creado utilizando la herramienta de ERDPLUS:
+
+<p align="center">
+  <img src="ruta_imagen.jpg" alt="ER Clinicks" width="160""/>
+
+</p>
+
+###### 2. Diseño lógico de la base de datos
+El modelo lógico se tradujo en un conjunto de tablas que responden al DER. Cada entidad conceptual se convirtió en una tabla con sus respectivos campos, tipos de datos y restricciones.
+
+<p align="center">
+  <img src="ruta_imagen.jpg" alt="DR Clinicks" width="160"/>
+
+</p>
+
+###### 3. Implementación en SQL Server
+El modelo lógico fue implementado en SQL Server, empleando Microsoft SQL Server Management Studio (SSMS) para la creación de tablas, relaciones y restricciones de integridad.
+
+<p align="center">
+  <img src="ruta_imagen.jpg" alt="SQL Clinicks" width="160"/>
+</p>
+
+---
+
 <a id="capitulo-vi-link-y-referencias"></a>
 ## Capítulo VI: Link y referencias
 
@@ -152,6 +199,15 @@ En síntesis, la metodología aplicada se basó en un enfoque ordenado y progres
 
 [2] Gobierno de la Ciudad Autónoma de Buenos Aires. Historia Clínica Electrónica: cómo funciona un innovador sistema que beneficia a los vecinos. Disponible en: https://buenosaires.gob.ar/noticias/la-ciudad-incorpora-la-historia-clinica-electronica
 </p>
+
+
+
+
+
+
+
+
+
 
 
 
