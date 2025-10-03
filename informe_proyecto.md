@@ -167,7 +167,10 @@ Las entidades principales que surgieron del análisis fueron:
 - **Rol:** esta entidad permite la creación de los distintos roles que podrán hacer uso de nuestro sistema, como se hizo mención anteriormente, los principales son: admnistrativo, médico y enfermero.
 
 Para su mejor compresión, presentamos una imagen del diagrama entidad-relación creado utilizando la herramienta de ERDPLUS:
+<p align="center">
+  <img src="doc/ER Clinicks.png" alt="ER Clinicks" width="160"/>
 
+</p>
 
 
 ###### 2. Diseño lógico de la base de datos
