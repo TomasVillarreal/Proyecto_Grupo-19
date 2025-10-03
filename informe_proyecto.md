@@ -177,7 +177,7 @@ Para su mejor compresión, presentamos una imagen del diagrama entidad-relación
 El modelo lógico se tradujo en un conjunto de tablas que responden al DER. Cada entidad conceptual se convirtió en una tabla con sus respectivos campos, tipos de datos y restricciones.
 
 <p align="center">
-  <img src="ruta_imagen.jpg" alt="DR Clinicks" width="160"/>
+  <img src="doc/DR Clinicks.png" alt="DR Clinicks" width="160"/>
 
 </p>
 
