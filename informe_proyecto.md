@@ -108,7 +108,41 @@ En conclusión, el marco conceptual que sustenta este trabajo se centra en la ap
 Estos fundamentos permiten comprender la importancia de la transición hacia sistemas informatizados y orientan el desarrollo del proyecto en el marco de la modernización de las instituciones médicas.
 </p>
 
+---
+<a id="capitulo-iii-metodologia-aplicada"></a>
+## Capítulo III: Metodología Aplicada
 
+<p style="text-align: justify;">
+El presente capítulo expone el plan de acción seguido para la realización del trabajo, describiendo las etapas que guiaron el desarrollo del proyecto, las herramientas utilizadas y las dificultades encontradas durante el proceso. De esta manera, se busca ofrecer una visión clara de los procedimientos empleados para alcanzar los objetivos planteados.
+
+El trabajo se llevó a cabo siguiendo una serie de etapas que permitieron avanzar de lo conceptual a lo práctico:
+
+- 1. **Análisis del problema y relevamiento de información.**
+
+     Se inició con la identificación de la problemática central: la dependencia de registros en papel para la gestión de pacientes en una clínica. Para ello se consultaron fuentes bibliográficas, recursos académicos en línea y ejemplos de sistemas similares ya implementados en otras instituciones de salud.
+
+- 2. **Definición de requerimientos.**
+
+     Una vez comprendida la problemática, se elaboró un listado de requerimientos funcionales de la base de datos, considerando tanto a los pacientes como al personal de la clínica. En esta etapa se definieron las entidades principales, los atributos necesarios y las relaciones entre ellas.
+
+- 3. **Diseño conceptual.**
+
+     Se utilizó la herramienta ERD Plus para el diseño del diagrama entidad-relación (DER). Esta etapa permitió representar gráficamente el modelo conceptual de la base de datos, asegurando una visión clara de la estructura de la información.
+
+- 4. **Diseño lógico e implementación.**
+
+     Con el modelo conceptual validado, se procedió a la traducción del mismo al modelo lógico, utilizando también ERD PLUS y para su posterior implementación al motor de base de datos SQL Server, gestionado a través del Microsoft SQL Server Management Studio (SSMS). En esta etapa se crearon las tablas, relaciones, claves primarias y foráneas, y se verificó la consistencia del modelo.
+
+
+
+- 5. **Dificultades encontradas.**
+
+     Entre las principales dificultades se destacan la necesidad de ajustar relaciones en el modelo para evitar redundancias, la adaptación al uso de SQL Server como sistema gestor, y el aprendizaje en el manejo de GitHub como herramienta colaborativa. Estos desafíos fueron superados mediante la revisión continua del diseño, la búsqueda de documentación oficial y el trabajo en equipo.
+
+En síntesis, la metodología aplicada se basó en un enfoque ordenado y progresivo, que partió de la comprensión del problema, pasó por el diseño conceptual y lógico de la base de datos, y culminó con la implementación y validación en un entorno real de gestión de datos.
+</p>
+
+---
 ---
 <a id="capitulo-vi-link-y-referencias"></a>
 ## Capítulo VI: Link y referencias
