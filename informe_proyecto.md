@@ -143,7 +143,6 @@ En síntesis, la metodología aplicada se basó en un enfoque ordenado y progres
 </p>
 
 ---
----
 <a id="capitulo-vi-link-y-referencias"></a>
 ## Capítulo VI: Link y referencias
 
