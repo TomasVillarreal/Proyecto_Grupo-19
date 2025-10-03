@@ -107,7 +107,6 @@ En conclusión, el marco conceptual que sustenta este trabajo se centra en la ap
 
 Estos fundamentos permiten comprender la importancia de la transición hacia sistemas informatizados y orientan el desarrollo del proyecto en el marco de la modernización de las instituciones médicas.
 </p>
----
 
 
 ---
