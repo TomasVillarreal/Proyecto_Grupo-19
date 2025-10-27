@@ -187,7 +187,7 @@ A continuación se muestra el script de SQL de la base de datos de nuestro proye
 
 ### Script de creación de la base de datos
 ```sql
-CREATE DATABASE Clinicks_BDI;
+[CREATE DATABASE Clinicks_BDI;
 
 USE Clinicks_BDI;
 
@@ -300,7 +300,8 @@ CREATE TABLE Registro_medicacion (
   CONSTRAINT FK_medicacion FOREIGN KEY (id_medicacion) REFERENCES Medicacion(id_medicacion),
   CONSTRAINT FK_id_resgitro_historial_paciente FOREIGN KEY (id_registro, id_historial, dni_paciente) 
     REFERENCES Registro(id_registro, id_historial, dni_paciente)
-);
+);](https://x.com/mau_albornoz/status/1975606394347786281?s=46&t=46ZvoQsDcm7_0d1NJ0hFfg
+)
 
 ```
 ---
