@@ -191,10 +191,6 @@ CREATE DATABASE Clinicks_BD_I;
 
 USE Clinicks_BD_I;
 
-CREATE DATABASE Clinicks_BD_I;
-
-USE Clinicks_BD_I;
-
 CREATE TABLE Paciente
 (
   id_paciente INT IDENTITY(1,1) NOT NULL,
@@ -202,50 +198,52 @@ CREATE TABLE Paciente
   apellido_paciente VARCHAR(100) NOT NULL,
   dni_paciente INT NOT NULL,
   telefono_paciente INT NOT NULL,
-  CONSTRAINT PK_id_paciente PRIMARY KEY (id_paciente),
-  CONSTRAINT CK_nombre_paciente CHECK (nombre_paciente LIKE '%[A-Za-z]%' AND nombre_paciente NOT LIKE '%[^A-Za-z]%'),
-  CONSTRAINT CK_apellido_paciente CHECK (apellido_paciente LIKE '%[A-Za-z]%' AND apellido_paciente NOT LIKE '%[^A-Za-z]%'),
-  CONSTRAINT CK_dni_paciente CHECK (dni_paciente NOT LIKE '%[^0-9]%'),
-  CONSTRAINT UQ_dni_paciente UNIQUE (dni_paciente),
-  CONSTRAINT CK_telefono CHECK (telefono_paciente NOT LIKE '%[^0-9]%')
-  
+  CONSTRAINT PK_paciente PRIMARY KEY (id_paciente),
+  CONSTRAINT CK_paciente_nombre_paciente CHECK (nombre_paciente LIKE '%[A-Za-zÁÉÍÓÚáéíóúÑñ -]%' 
+       AND nombre_paciente NOT LIKE '%[^A-Za-zÁÉÍÓÚáéíóúÑñ -]%'),
+  CONSTRAINT CK_paciente_apellido_paciente CHECK (apellido_paciente LIKE '%[A-Za-zÁÉÍÓÚáéíóúÑñ -]%' 
+       AND apellido_paciente NOT LIKE '%[^A-Za-zÁÉÍÓÚáéíóúÑñ -]%'),
+  CONSTRAINT UQ_paciente_dni_paciente UNIQUE (dni_paciente),
 );
 
 CREATE TABLE Ficha_medica
 (
-  id_ficha_medica INT IDENTITY(1,1) NOT NULL,
+  id_paciente INT NOT NULL,
   fecha_creacion DATE NOT NULL CONSTRAINT DF_fecha_creacion_ficha DEFAULT GETDATE(),
   tipo_sanguineo VARCHAR(3) NOT NULL,
   estatura INT NOT NULL,
   peso FLOAT NOT NULL,
-  dni_paciente INT NOT NULL,
-  CONSTRAINT PK_id_ficha_medica_dni PRIMARY KEY (id_ficha_medica, dni_paciente),
-  CONSTRAINT FK_dni_paciente FOREIGN KEY (dni_paciente) REFERENCES Paciente(dni_paciente),
-  CONSTRAINT CK_tipo_sanguineo CHECK (tipo_sanguineo IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-')),
-  CONSTRAINT CK_estatura CHECK (estatura > 0),
-  CONSTRAINT CK_peso CHECK (peso > 0)
+  CONSTRAINT PK_ficha_medica PRIMARY KEY (id_paciente),
+  CONSTRAINT FK_ficha_medica_paciente FOREIGN KEY (id_paciente) REFERENCES Paciente(id_paciente),
+  CONSTRAINT CK_ficha_medica_tipo_sanguineo CHECK (tipo_sanguineo IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-')),
+  CONSTRAINT CK_ficha_medica_estatura CHECK (estatura > 0),
+  CONSTRAINT CK_ficha_medica_peso CHECK (peso > 0),
 );
 
 CREATE TABLE Usuario
 (
+  id_usuario INT IDENTITY(1,1) NOT NULL,
   nombre_usuario VARCHAR(200) NOT NULL,
   apellido_usuario VARCHAR(200) NOT NULL,
   email_usuario VARCHAR(200) NOT NULL,
   password VARCHAR(200) NOT NULL,
   dni_usuario INT NOT NULL,
-  CONSTRAINT PK_dni_usuario PRIMARY KEY (dni_usuario),
-  CONSTRAINT CK_nombre_usuario CHECK (nombre_usuario LIKE '%[A-Za-z]%' AND nombre_usuario NOT LIKE '%[^A-Za-z]%'),
-  CONSTRAINT CK_apellido_usuario CHECK (apellido_usuario LIKE '%[A-Za-z]%' AND apellido_usuario NOT LIKE '%[^A-Za-z]%'),
-  CONSTRAINT UQ_email_usuario UNIQUE (email_usuario),
-  CONSTRAINT CK_email_formato CHECK (email_usuario LIKE '%_@%_._%')
+  CONSTRAINT PK_usuario PRIMARY KEY (id_usuario),
+  CONSTRAINT CK_usuario_nombre_usuario CHECK (nombre_usuario LIKE '%[A-Za-zÁÉÍÓÚáéíóúÑñ -]%' 
+       AND nombre_usuario NOT LIKE '%[^A-Za-zÁÉÍÓÚáéíóúÑñ -]%'),
+  CONSTRAINT CK_usuario_apellido_usuario CHECK (apellido_usuario LIKE '%[A-Za-zÁÉÍÓÚáéíóúÑñ -]%' 
+       AND apellido_usuario NOT LIKE '%[^A-Za-zÁÉÍÓÚáéíóúÑñ -]%'),
+  CONSTRAINT UQ_usuario_email_usuario UNIQUE (email_usuario),
+  CONSTRAINT CK_usuario_email_formato CHECK (email_usuario LIKE '%_@%_._%'),
+  CONSTRAINT UQ_usuario_dni_usuario UNIQUE (dni_usuario),
 );
 
 CREATE TABLE Rol
 (
   id_rol INT IDENTITY(1,1) NOT NULL,
   nombre_rol VARCHAR(200) NOT NULL,
-  CONSTRAINT PK_id_rol PRIMARY KEY (id_rol),
-  CONSTRAINT UQ_nombre_rol UNIQUE (nombre_rol),
+  CONSTRAINT PK_rol PRIMARY KEY (id_rol),
+  CONSTRAINT UQ_rol_nombre_rol UNIQUE (nombre_rol),
 );
 
 CREATE TABLE Medicacion
@@ -253,66 +251,66 @@ CREATE TABLE Medicacion
   id_medicacion INT IDENTITY(1,1) NOT NULL,
   nombre_medicacion VARCHAR(200) NOT NULL,
   dosis_medicacion INT NOT NULL,
-  CONSTRAINT PK_id_medicacion PRIMARY KEY (id_medicacion),
-  CONSTRAINT CK_nombre_medicacion CHECK (nombre_medicacion LIKE '%[A-Za-z]%' AND nombre_medicacion NOT LIKE '%[^A-Za-z]%'),
-  CONSTRAINT UQ_nombre_medicacion UNIQUE (nombre_medicacion),
-  CONSTRAINT CK_dosis CHECK (dosis_medicacion > 0),
+  CONSTRAINT PK_medicacion PRIMARY KEY (id_medicacion),
+  CONSTRAINT CK_medicacion_nombre_medicacion CHECK (nombre_medicacion LIKE '%[A-Za-z]%' AND nombre_medicacion NOT LIKE '%[^A-Za-z]%'),
+  CONSTRAINT UQ_medicacion_nombre_medicacion UNIQUE (nombre_medicacion),
+  CONSTRAINT CK_medicacion_dosis CHECK (dosis_medicacion > 0),
 );
 
 CREATE TABLE Tipo_registro
 (
-  id_procedimiento INT IDENTITY(1,1) NOT NULL,
+  id_tipo_registro INT IDENTITY(1,1) NOT NULL,
   nombre_registro VARCHAR(200) NOT NULL,
-  CONSTRAINT PK_id_procedimiento PRIMARY KEY (id_procedimiento),
-  CONSTRAINT CK_nombre_registro CHECK (nombre_registro LIKE '%[A-Za-z]%' AND nombre_registro NOT LIKE '%[^A-Za-z]%'),
-  CONSTRAINT UQ_nombre_registro UNIQUE (nombre_registro),
+  CONSTRAINT PK_tipo_registro PRIMARY KEY (id_tipo_registro),
+  CONSTRAINT CK_tipo_registro_nombre_registro CHECK (nombre_registro LIKE '%[A-Za-z]%' AND nombre_registro NOT LIKE '%[^A-Za-z]%'),
+  CONSTRAINT UQ_tipo_registro_nombre_registro UNIQUE (nombre_registro),
 );
 
 CREATE TABLE Especialidad
 (
   id_especialidad INT IDENTITY(1,1) NOT NULL,
   nombre_especialidad VARCHAR(100) NOT NULL,
-  CONSTRAINT PK_id_especialidad PRIMARY KEY (id_especialidad),
-  CONSTRAINT CK_nombre_especialidad CHECK (nombre_especialidad LIKE '%[A-Za-z]%' AND nombre_especialidad NOT LIKE '%[^A-Za-z]%'),
-  CONSTRAINT UQ_nombre_especialidad UNIQUE (nombre_especialidad),
+  CONSTRAINT PK_especialidad PRIMARY KEY (id_especialidad),
+  CONSTRAINT CK_especialidad_nombre_especialidad CHECK (nombre_especialidad LIKE '%[A-Za-z]%' AND nombre_especialidad NOT LIKE '%[^A-Za-z]%'),
+  CONSTRAINT UQ_especialidad_nombre_especialidad UNIQUE (nombre_especialidad),
 );
 
 CREATE TABLE Rol_especialidad
 (
   id_rol INT NOT NULL,
   id_especialidad INT NOT NULL,
-  CONSTRAINT PK_id_rol_especialidad PRIMARY KEY (id_rol, id_especialidad),
-  CONSTRAINT FK_id_rol FOREIGN KEY (id_rol) REFERENCES Rol(id_rol),
-  CONSTRAINT FK_id_especialidad FOREIGN KEY (id_especialidad) REFERENCES Especialidad(id_especialidad)
+  CONSTRAINT PK_rol_especialidad PRIMARY KEY (id_rol, id_especialidad),
+  CONSTRAINT FK_rol_especialidad_rol FOREIGN KEY (id_rol) REFERENCES Rol(id_rol),
+  CONSTRAINT FK_rol_especialidad_especialidad FOREIGN KEY (id_especialidad) REFERENCES Especialidad(id_especialidad)
 );
 
 CREATE TABLE Registro_especialidad
 (
-  id_procedimiento INT NOT NULL,
+  id_tipo_registro INT NOT NULL,
   id_rol INT NOT NULL,
   id_especialidad INT NOT NULL,
-  CONSTRAINT PK_Registro_especialidad PRIMARY KEY (id_procedimiento, id_rol, id_especialidad),
-  CONSTRAINT FK_RE_TipoRegistro FOREIGN KEY (id_procedimiento) REFERENCES Tipo_registro(id_procedimiento),
-  CONSTRAINT FK_RE_RolEspecialidad FOREIGN KEY (id_rol, id_especialidad) REFERENCES Rol_especialidad(id_rol, id_especialidad)
+  CONSTRAINT PK_registro_especialidad PRIMARY KEY (id_tipo_registro, id_rol, id_especialidad),
+  CONSTRAINT FK_registro_especialidad_tipo_registro FOREIGN KEY (id_tipo_registro) REFERENCES Tipo_registro(id_tipo_registro),
+  CONSTRAINT FK_registro_especialidad_rol_especialidad FOREIGN KEY (id_rol, id_especialidad) REFERENCES Rol_especialidad(id_rol, id_especialidad)
 );
 
 CREATE TABLE Usuario_Rol
 (
-  id_rol INT IDENTITY(1,1) NOT NULL,
-  dni_usuario INT NOT NULL,
-  CONSTRAINT PK_id_rol_dni_usuario PRIMARY KEY (id_rol, dni_usuario),
-  CONSTRAINT FK_id_rol FOREIGN KEY (id_rol) REFERENCES Rol(id_rol),
-  CONSTRAINT FK_dni_usuario FOREIGN KEY (dni_usuario) REFERENCES Usuario(dni_usuario)
+  id_rol INT NOT NULL,
+  id_usuario INT NOT NULL,
+  CONSTRAINT PK_usuario_rol PRIMARY KEY (id_rol, id_usuario),
+  CONSTRAINT FK_usuario_rol_rol FOREIGN KEY (id_rol) REFERENCES Rol(id_rol),
+  CONSTRAINT FK_usuario_rol_usuario FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
 );
 
 CREATE TABLE Usuario_rol_especialidad
 (
   id_rol INT NOT NULL,
-  dni_usuario INT NOT NULL,
+  id_usuario INT NOT NULL,
   id_especialidad INT NOT NULL,
-  CONSTRAINT PK_UsuarioRolEspecialidad PRIMARY KEY (id_rol, dni_usuario, id_especialidad),
-  CONSTRAINT FK_URE_UsuarioRol FOREIGN KEY (id_rol, dni_usuario) REFERENCES Usuario_Rol(id_rol, dni_usuario),
-  CONSTRAINT FK_URE_RolEspecialidad FOREIGN KEY (id_rol, id_especialidad) REFERENCES Rol_especialidad(id_rol, id_especialidad)
+  CONSTRAINT PK_usuario_rol_especialidad PRIMARY KEY (id_rol, id_usuario, id_especialidad),
+  CONSTRAINT FK_usuario_rol_especialidad_usuario_rol FOREIGN KEY (id_rol, id_usuario) REFERENCES Usuario_Rol(id_rol, id_usuario),
+  CONSTRAINT FK_usuario_rol_especialidad_rol_especialidad FOREIGN KEY (id_rol, id_especialidad) REFERENCES Rol_especialidad(id_rol, id_especialidad)
 );
 
 CREATE TABLE Registro
@@ -320,30 +318,30 @@ CREATE TABLE Registro
   id_registro INT IDENTITY(1,1) NOT NULL,
   fecha_registro DATE NOT NULL CONSTRAINT DF_fecha_registro DEFAULT GETDATE(),
   observaciones VARCHAR(255) NOT NULL,
-  id_procedimiento INT NOT NULL,
+  id_tipo_registro INT NOT NULL,
   id_rol_procedimiento INT NOT NULL,
   id_especialidad_procedimiento INT NOT NULL,
   id_rol_usuario INT NOT NULL,
-  dni_usuario INT NOT NULL,
+  id_usuario INT NOT NULL,
   id_especialidad_usuario INT NOT NULL,
-  id_ficha_medica INT NOT NULL,
-  dni_paciente INT NOT NULL,
-  CONSTRAINT PK_Registro PRIMARY KEY (id_registro, id_ficha_medica, dni_paciente),
-  CONSTRAINT FK_R_RegistroEspecialidad FOREIGN KEY (id_procedimiento, id_rol_procedimiento, id_especialidad_procedimiento) REFERENCES Registro_especialidad(id_procedimiento, id_rol, id_especialidad),
-  CONSTRAINT FK_R_UsuarioRolEspecialidad FOREIGN KEY (id_rol_usuario, dni_usuario, id_especialidad_usuario) REFERENCES Usuario_rol_especialidad(id_rol, dni_usuario, id_especialidad),
-  CONSTRAINT FK_R_FichaPaciente FOREIGN KEY (id_ficha_medica, dni_paciente) REFERENCES Ficha_medica(id_ficha_medica, dni_paciente)
+  id_paciente INT NOT NULL,
+  CONSTRAINT PK_registro PRIMARY KEY (id_registro, id_paciente),
+  CONSTRAINT FK_registro_registro_especialidad FOREIGN KEY (id_tipo_registro, id_rol_procedimiento, id_especialidad_procedimiento) REFERENCES Registro_especialidad(id_tipo_registro, id_rol, id_especialidad),
+  CONSTRAINT FK_registro_usuario_rol_especialidad FOREIGN KEY (id_rol_usuario, id_usuario, id_especialidad_usuario) REFERENCES Usuario_rol_especialidad(id_rol, id_usuario, id_especialidad),
+  CONSTRAINT FK_registro_ficha_paciente FOREIGN KEY (id_paciente) REFERENCES Ficha_medica(id_paciente),
 );
 
 CREATE TABLE Registro_medicacion
 (
   id_medicacion INT NOT NULL,
   id_registro INT NOT NULL,
-  id_ficha_medica INT NOT NULL,
-  dni_paciente INT NOT NULL,
-  CONSTRAINT PK_RegistroMedicacion PRIMARY KEY (id_medicacion, id_registro, id_ficha_medica, dni_paciente),
-  CONSTRAINT FK_RM_Medicacion FOREIGN KEY (id_medicacion) REFERENCES Medicacion(id_medicacion),
-  CONSTRAINT FK_RM_Registro FOREIGN KEY (id_registro, id_ficha_medica, dni_paciente) REFERENCES Registro(id_registro, id_ficha_medica, dni_paciente)
+  id_paciente INT NOT NULL,
+  CONSTRAINT PK_registro_medicacion PRIMARY KEY (id_medicacion, id_registro, id_paciente),
+  CONSTRAINT FK_registro_medicacion_medicacion FOREIGN KEY (id_medicacion) REFERENCES Medicacion(id_medicacion),
+  CONSTRAINT FK_registro_medicacion_registro FOREIGN KEY (id_registro, id_paciente) REFERENCES Registro(id_registro, id_paciente)
 );
+
+
 
 ```
 ---
