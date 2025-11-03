@@ -7,7 +7,7 @@ INSERT INTO Medicacion (nombre_medicacion, dosis_medicacion) VALUES
 ('Ibuprofeno', 600),   -- id_medicacion = 2
 ('Omeprazol', 20),     -- id_medicacion = 3
 ('Paracetamol', 750),  -- id_medicacion = 4
-('Losart醤', 50),      -- id_medicacion = 5
+('Losart谩n', 50),      -- id_medicacion = 5
 ('Aspirina', 100),     -- id_medicacion = 6
 ('Sertralina', 50),    -- id_medicacion = 7
 ('Furosemida', 40),    -- id_medicacion = 8
@@ -17,7 +17,7 @@ GO
 
 -- 2. USUARIO (10 unidades - 5 Medicos, 5 Enfermeros)
 INSERT INTO Usuario (nombre_usuario, apellido_usuario, email_usuario, password, dni_usuario) VALUES
--- M閐icos (Esp. 6 a 10)
+-- M茅dicos (Esp. 6 a 10)
 ('Adriana', 'Gomez', 'a.gomez@clinic.com', 'pass1', 20111222),  -- id_usuario = 1
 ('Braulio', 'Flores', 'b.flores@clinic.com', 'pass2', 21333444), -- id_usuario = 2
 ('Carla', 'Rojas', 'c.rojas@clinic.com', 'pass3', 22555666),   -- id_usuario = 3
@@ -26,7 +26,7 @@ INSERT INTO Usuario (nombre_usuario, apellido_usuario, email_usuario, password, 
 -- Enfermeros (Esp. 1 a 5)
 ('Fabian', 'Luna', 'f.luna@clinic.com', 'pass6', 25121314),   -- id_usuario = 6
 ('Gloria', 'Mendez', 'g.mendez@clinic.com', 'pass7', 26454647), -- id_usuario = 7
-('Hugo', 'Nu馿z', 'h.nunez@clinic.com', 'pass8', 27787980),    -- id_usuario = 8
+('Hugo', 'Nu帽ez', 'h.nunez@clinic.com', 'pass8', 27787980),    -- id_usuario = 8
 ('Irma', 'Ortiz', 'i.ortiz@clinic.com', 'pass9', 28010203),    -- id_usuario = 9
 ('Javier', 'Paz', 'j.paz@clinic.com', 'pass10', 29343536);    -- id_usuario = 10
 GO
@@ -83,12 +83,12 @@ INSERT INTO Registro (
 ('Control de presion arterial. Se mantiene medicacion.', 27, 1, 6, 1, 1, 6, 1),
 ('Control de signos vitales post-operatorio. Estable.', 1, 2, 1, 2, 6, 1, 2),
 ('Consulta de seguimiento neurologico. Sin cambios significativos.', 35, 1, 7, 1, 2, 7, 3),
-('Curacion de herida simple. Se retiran puntos en 5 d韆s.', 7, 2, 2, 2, 7, 2, 4),
-('Diagnostico de infecci髇 respiratoria. Se receta antibi髏ico.', 38, 1, 8, 1, 3, 8, 5),
+('Curacion de herida simple. Se retiran puntos en 5 d铆as.', 7, 2, 2, 2, 7, 2, 4),
+('Diagnostico de infecci贸n respiratoria. Se receta antibi贸tico.', 38, 1, 8, 1, 3, 8, 5),
 ('Control de PA en adulto mayor. Se administra diuretico.', 11, 2, 3, 2, 8, 3, 6),
 ('Control de inmovilizacion por fractura. Evolucion favorable.', 42, 1, 9, 1, 4, 9, 7),
-('Atenci髇 inicial de trauma leve en extremidad.', 16, 2, 4, 2, 9, 4, 8),
-('Control de tratamiento dermatol骻ico t髉ico. Buena respuesta.', 47, 1, 10, 1, 5, 10, 9),
+('Atenci贸n inicial de trauma leve en extremidad.', 16, 2, 4, 2, 9, 4, 8),
+('Control de tratamiento dermatol贸gico t贸pico. Buena respuesta.', 47, 1, 10, 1, 5, 10, 9),
 ('Control de tratamiento psiquiatrico. Se evalua estado de animo.', 23, 2, 5, 2, 10, 5, 10);
 GO
 
