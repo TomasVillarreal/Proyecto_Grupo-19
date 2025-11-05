@@ -1,5 +1,4 @@
 CREATE DATABASE Clinicks_BD_I;
-
 USE Clinicks_BD_I;
 
 CREATE TABLE Paciente
@@ -10,10 +9,10 @@ CREATE TABLE Paciente
   dni_paciente INT NOT NULL,
   telefono_paciente INT NOT NULL,
   CONSTRAINT PK_paciente PRIMARY KEY (id_paciente),
-  CONSTRAINT CK_paciente_nombre_paciente CHECK (nombre_paciente LIKE '%[A-Za-z¡…Õ”⁄·ÈÌÛ˙—Ò -]%' 
-       AND nombre_paciente NOT LIKE '%[^A-Za-z¡…Õ”⁄·ÈÌÛ˙—Ò -]%'),
-  CONSTRAINT CK_paciente_apellido_paciente CHECK (apellido_paciente LIKE '%[A-Za-z¡…Õ”⁄·ÈÌÛ˙—Ò -]%' 
-       AND apellido_paciente NOT LIKE '%[^A-Za-z¡…Õ”⁄·ÈÌÛ˙—Ò -]%'),
+  CONSTRAINT CK_paciente_nombre_paciente CHECK (nombre_paciente LIKE '%[A-Za-z√Å√â√ç√ì√ö√°√©√≠√≥√∫√ë√± -]%' 
+       AND nombre_paciente NOT LIKE '%[^A-Za-z√Å√â√ç√ì√ö√°√©√≠√≥√∫√ë√± -]%'),
+  CONSTRAINT CK_paciente_apellido_paciente CHECK (apellido_paciente LIKE '%[A-Za-z√Å√â√ç√ì√ö√°√©√≠√≥√∫√ë√± -]%' 
+       AND apellido_paciente NOT LIKE '%[^A-Za-z√Å√â√ç√ì√ö√°√©√≠√≥√∫√ë√± -]%'),
   CONSTRAINT UQ_paciente_dni_paciente UNIQUE (dni_paciente),
 );
 
@@ -40,10 +39,10 @@ CREATE TABLE Usuario
   password VARCHAR(200) NOT NULL,
   dni_usuario INT NOT NULL,
   CONSTRAINT PK_usuario PRIMARY KEY (id_usuario),
-  CONSTRAINT CK_usuario_nombre_usuario CHECK (nombre_usuario LIKE '%[A-Za-z¡…Õ”⁄·ÈÌÛ˙—Ò -]%' 
-       AND nombre_usuario NOT LIKE '%[^A-Za-z¡…Õ”⁄·ÈÌÛ˙—Ò -]%'),
-  CONSTRAINT CK_usuario_apellido_usuario CHECK (apellido_usuario LIKE '%[A-Za-z¡…Õ”⁄·ÈÌÛ˙—Ò -]%' 
-       AND apellido_usuario NOT LIKE '%[^A-Za-z¡…Õ”⁄·ÈÌÛ˙—Ò -]%'),
+  CONSTRAINT CK_usuario_nombre_usuario CHECK (nombre_usuario LIKE '%[A-Za-z√Å√â√ç√ì√ö√°√©√≠√≥√∫√ë√± -]%' 
+       AND nombre_usuario NOT LIKE '%[^A-Za-z√Å√â√ç√ì√ö√°√©√≠√≥√∫√ë√± -]%'),
+  CONSTRAINT CK_usuario_apellido_usuario CHECK (apellido_usuario LIKE '%[A-Za-z√Å√â√ç√ì√ö√°√©√≠√≥√∫√ë√± -]%' 
+       AND apellido_usuario NOT LIKE '%[^A-Za-z√Å√â√ç√ì√ö√°√©√≠√≥√∫√ë√± -]%'),
   CONSTRAINT UQ_usuario_email_usuario UNIQUE (email_usuario),
   CONSTRAINT CK_usuario_email_formato CHECK (email_usuario LIKE '%_@%_._%'),
   CONSTRAINT UQ_usuario_dni_usuario UNIQUE (dni_usuario),
@@ -63,7 +62,9 @@ CREATE TABLE Medicacion
   nombre_medicacion VARCHAR(200) NOT NULL,
   dosis_medicacion INT NOT NULL,
   CONSTRAINT PK_medicacion PRIMARY KEY (id_medicacion),
-  CONSTRAINT CK_medicacion_nombre_medicacion CHECK (nombre_medicacion LIKE '%[A-Za-z]%' AND nombre_medicacion NOT LIKE '%[^A-Za-z]%'),
+  CONSTRAINT CK_medicacion_nombre_medicacion CHECK (nombre_medicacion LIKE '%[A-Za-z√ë√±]%'
+      AND nombre_medicacion NOT LIKE '%[^A-Za-z√ë√± -]%'
+      AND nombre_medicacion NOT LIKE '%  %'),
   CONSTRAINT UQ_medicacion_nombre_medicacion UNIQUE (nombre_medicacion),
   CONSTRAINT CK_medicacion_dosis CHECK (dosis_medicacion > 0),
 );
@@ -73,7 +74,9 @@ CREATE TABLE Tipo_registro
   id_tipo_registro INT IDENTITY(1,1) NOT NULL,
   nombre_registro VARCHAR(200) NOT NULL,
   CONSTRAINT PK_tipo_registro PRIMARY KEY (id_tipo_registro),
-  CONSTRAINT CK_tipo_registro_nombre_registro CHECK (nombre_registro LIKE '%[A-Za-z]%' AND nombre_registro NOT LIKE '%[^A-Za-z]%'),
+  CONSTRAINT CK_tipo_registro_nombre_registro CHECK (nombre_registro LIKE '%[A-Za-z√ë√±]%'
+      AND nombre_registro NOT LIKE '%[^A-Za-z√ë√± -]%'
+      AND nombre_registro NOT LIKE '%  %'),
   CONSTRAINT UQ_tipo_registro_nombre_registro UNIQUE (nombre_registro),
 );
 
@@ -82,7 +85,9 @@ CREATE TABLE Especialidad
   id_especialidad INT IDENTITY(1,1) NOT NULL,
   nombre_especialidad VARCHAR(100) NOT NULL,
   CONSTRAINT PK_especialidad PRIMARY KEY (id_especialidad),
-  CONSTRAINT CK_especialidad_nombre_especialidad CHECK (nombre_especialidad LIKE '%[A-Za-z]%' AND nombre_especialidad NOT LIKE '%[^A-Za-z]%'),
+  CONSTRAINT CK_especialidad_nombre_especialidad CHECK (nombre_especialidad LIKE '%[A-Za-z√ë√±]%'
+      AND nombre_especialidad NOT LIKE '%[^A-Za-z√ë√± -]%'
+      AND nombre_especialidad NOT LIKE '%  %'),
   CONSTRAINT UQ_especialidad_nombre_especialidad UNIQUE (nombre_especialidad),
 );
 
@@ -151,6 +156,9 @@ CREATE TABLE Registro_medicacion
   CONSTRAINT FK_registro_medicacion_medicacion FOREIGN KEY (id_medicacion) REFERENCES Medicacion(id_medicacion),
   CONSTRAINT FK_registro_medicacion_registro FOREIGN KEY (id_registro, id_paciente) REFERENCES Registro(id_registro, id_paciente)
 );
+
+
+
 
 
 
