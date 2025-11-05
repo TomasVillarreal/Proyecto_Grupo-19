@@ -188,7 +188,6 @@ A continuación se muestra el script de SQL de la base de datos de nuestro proye
 ### Script de creación de la base de datos
 ```sql
 CREATE DATABASE Clinicks_BD_I;
-
 USE Clinicks_BD_I;
 
 CREATE TABLE Paciente
@@ -252,7 +251,9 @@ CREATE TABLE Medicacion
   nombre_medicacion VARCHAR(200) NOT NULL,
   dosis_medicacion INT NOT NULL,
   CONSTRAINT PK_medicacion PRIMARY KEY (id_medicacion),
-  CONSTRAINT CK_medicacion_nombre_medicacion CHECK (nombre_medicacion LIKE '%[A-Za-z]%' AND nombre_medicacion NOT LIKE '%[^A-Za-z]%'),
+  CONSTRAINT CK_medicacion_nombre_medicacion CHECK (nombre_medicacion LIKE '%[A-Za-zÑñ]%'
+      AND nombre_medicacion NOT LIKE '%[^A-Za-zÑñ -]%'
+      AND nombre_medicacion NOT LIKE '%  %'),
   CONSTRAINT UQ_medicacion_nombre_medicacion UNIQUE (nombre_medicacion),
   CONSTRAINT CK_medicacion_dosis CHECK (dosis_medicacion > 0),
 );
@@ -262,7 +263,9 @@ CREATE TABLE Tipo_registro
   id_tipo_registro INT IDENTITY(1,1) NOT NULL,
   nombre_registro VARCHAR(200) NOT NULL,
   CONSTRAINT PK_tipo_registro PRIMARY KEY (id_tipo_registro),
-  CONSTRAINT CK_tipo_registro_nombre_registro CHECK (nombre_registro LIKE '%[A-Za-z]%' AND nombre_registro NOT LIKE '%[^A-Za-z]%'),
+  CONSTRAINT CK_tipo_registro_nombre_registro CHECK (nombre_registro LIKE '%[A-Za-zÑñ]%'
+      AND nombre_registro NOT LIKE '%[^A-Za-zÑñ -]%'
+      AND nombre_registro NOT LIKE '%  %'),
   CONSTRAINT UQ_tipo_registro_nombre_registro UNIQUE (nombre_registro),
 );
 
@@ -271,7 +274,9 @@ CREATE TABLE Especialidad
   id_especialidad INT IDENTITY(1,1) NOT NULL,
   nombre_especialidad VARCHAR(100) NOT NULL,
   CONSTRAINT PK_especialidad PRIMARY KEY (id_especialidad),
-  CONSTRAINT CK_especialidad_nombre_especialidad CHECK (nombre_especialidad LIKE '%[A-Za-z]%' AND nombre_especialidad NOT LIKE '%[^A-Za-z]%'),
+  CONSTRAINT CK_especialidad_nombre_especialidad CHECK (nombre_especialidad LIKE '%[A-Za-zÑñ]%'
+      AND nombre_especialidad NOT LIKE '%[^A-Za-zÑñ -]%'
+      AND nombre_especialidad NOT LIKE '%  %'),
   CONSTRAINT UQ_especialidad_nombre_especialidad UNIQUE (nombre_especialidad),
 );
 
