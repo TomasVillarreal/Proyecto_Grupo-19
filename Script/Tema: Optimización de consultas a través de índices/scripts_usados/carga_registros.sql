@@ -11,7 +11,7 @@ BEGIN TRY
     IF @idRolMedico IS NULL
         THROW 51000, 'No existe el rol "Medico".', 1;
 
-    -- Lista de mÈdicos disponibles (Rol = Medico)
+    -- Lista de m√©dicos disponibles (Rol = Medico)
     IF OBJECT_ID('tempdb..#Medicos') IS NOT NULL DROP TABLE #Medicos;
     SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn,
            ure.id_rol, ure.id_usuario, ure.id_especialidad
@@ -21,9 +21,9 @@ BEGIN TRY
 
     DECLARE @cntMedicos INT = (SELECT COUNT(*) FROM #Medicos);
     IF @cntMedicos = 0
-        THROW 51001, 'No hay mÈdicos cargados.', 1;
+        THROW 51001, 'No hay m√©dicos cargados.', 1;
 
-    -- Lista de fichas mÈdicas
+    -- Lista de fichas m√©dicas
     IF OBJECT_ID('tempdb..#Fichas') IS NOT NULL DROP TABLE #Fichas;
     SELECT id_paciente, fecha_creacion
     INTO #Fichas
@@ -31,14 +31,14 @@ BEGIN TRY
 
     DECLARE @cntFichas INT = (SELECT COUNT(*) FROM #Fichas);
 
-    -- Tabla temporal de todos los tipos posibles (para consultas r·pidas)
+    -- Tabla temporal de todos los tipos posibles (para consultas r√°pidas)
     IF OBJECT_ID('tempdb..#RegEsp') IS NOT NULL DROP TABLE #RegEsp;
     SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn,
            id_tipo_registro, id_rol, id_especialidad
     INTO #RegEsp
     FROM Registro_especialidad;
 
-    -- ObservaciÛn fija
+    -- Observaci√≥n fija
     DECLARE @obs NVARCHAR(255) = N'El paciente esta sano, no presenta sintomas algunos';
 
     DECLARE @f INT = 1;
@@ -59,7 +59,7 @@ BEGIN TRY
                    @id_especialidad_usuario = id_especialidad
             FROM #Medicos WHERE rn = @rndMedico;
 
-            -- Filtramos tipos de registro v·lidos para esa especialidad
+            -- Filtramos tipos de registro v√°lidos para esa especialidad
             DECLARE @cntTipos INT = (
                 SELECT COUNT(*) FROM #RegEsp
                 WHERE id_rol = @id_rol_usuario AND id_especialidad = @id_especialidad_usuario
@@ -123,11 +123,11 @@ BEGIN TRY
     END
 
     COMMIT TRANSACTION;
-    PRINT 'InserciÛn completa de 1.000.000 registros.';
+    PRINT 'Inserci√≥n completa de 1.000.000 registros.';
 END TRY
 BEGIN CATCH
     ROLLBACK TRANSACTION;
-    PRINT 'Error en la transacciÛn: ' + ERROR_MESSAGE();
+    PRINT 'Error en la transacci√≥n: ' + ERROR_MESSAGE();
 END CATCH;
 
 
