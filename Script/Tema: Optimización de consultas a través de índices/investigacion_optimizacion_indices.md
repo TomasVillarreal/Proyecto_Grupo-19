@@ -23,9 +23,18 @@ CREATE INDEX nombre_índice
 ON nombre_tabla (nombre_columna_1, nombre_columna_2, …)
 ```
 Ahora, supongamos que tenemos la siguiente tabla de clientes en nuestra base de datos:
-<p align="center">
-  <img src="Script/Tema: Optimización de consultas a través de índices/imgs/ejemplo tabla investigacion.png" alt="ER Clinicks" width="160"/>
-</p>
+```sql
+CREATE TABLE Customer (
+    ID              INT             PRIMARY KEY,
+    FirstName       VARCHAR(50),
+    LastName        VARCHAR(50),
+    Gender          INT,
+    DOB             DATE,
+    Email           VARCHAR(100),
+    MainPhone       VARCHAR(18),
+    LastOrderDate   DATETIME2(2)
+);
+```
  
 Supongamos ahora que deseamos crear un índice respecto del nombre y apellido del cliente para poder acelerar el proceso de búsqueda. Eso se haría de la siguiente forma:
 ```sql
