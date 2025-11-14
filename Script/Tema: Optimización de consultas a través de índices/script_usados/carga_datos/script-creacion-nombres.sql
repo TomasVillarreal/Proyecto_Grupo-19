@@ -45,13 +45,13 @@ VALUES
 ('Jesica'), ('Joel'), ('Jonatan'), ('Josef'), ('Josue'), ('Juanita'), ('Julio'), ('Justina'), ('Karen'), ('Karla'),
 ('Lautaro'), ('Leila'), ('Leonardo'), ('Lidia'), ('Lisandro'), ('Lola'), ('Lorenz'), ('Lucero'), ('Ludmila'), ('Luisina'),
 ('Macarena'), ('Maia'), ('Malena'), ('Manolo'), ('Marcelo'), ('Marcos'), ('Maribel'), ('Marina'), ('Mario'), ('Martina'),
-('Mateo'), ('Mauricio'), ('Maximo'), ('Melina'), ('Mercedes'), ('Mia'), ('Miguel'), ('Mirta'), ('Moisés'), ('Morena'),
+('Mateo'), ('Mauricio'), ('Maximo'), ('Melina'), ('Mercedes'), ('Mia'), ('Miguel'), ('Mirta'), ('MoisÃ©s'), ('Morena'),
 ('Nadia'), ('Nahuel'), ('Nancy'), ('Natalia'), ('Nayla'), ('Nazareno'), ('Nerea'), ('Nestor'), ('Nicanor'), ('Nicole'),
 ('Nilda'), ('Noa'), ('Noelia'), ('Nora'), ('Norberto'), ('Norma'), ('Octavio'), ('Olga'), ('Omar'), ('Orlando'),
 ('Oscar'), ('Osvaldo'), ('Pascual'), ('Patricio'), ('Paulina'), ('Pedro'), ('Pepe'), ('Pia'), ('Priscila'), ('Rafael'),
 ('Ramona'), ('Raquel'), ('Rebeca'), ('Renata'), ('Ricardo'), ('Rita'), ('Roberto'), ('Rodrigo'), ('Rogelio'), ('Rosa'),
-('Rosalia'), ('Rosana'), ('Rosario'), ('Roxana'), ('Rubén'), ('Sabina'), ('Salvador'), ('Samuel'), ('Sandra'), ('Sara'),
-('Sebastian'), ('Selena'), ('Sergio'), ('Silvana'), ('Silvia'), ('Simón'), ('Soledad'), ('Sonia'), ('Sophie'), ('Susana'),
+('Rosalia'), ('Rosana'), ('Rosario'), ('Roxana'), ('RubÃ©n'), ('Sabina'), ('Salvador'), ('Samuel'), ('Sandra'), ('Sara'),
+('Sebastian'), ('Selena'), ('Sergio'), ('Silvana'), ('Silvia'), ('SimÃ³n'), ('Soledad'), ('Sonia'), ('Sophie'), ('Susana'),
 ('Tadeo'), ('Tamara'), ('Teodoro'), ('Teresa'), ('Thiago'), ('Tomas'), ('Trinidad'), ('Ulises'), ('Valentina'), ('Vanesa'),
 ('Vicente'), ('Virginia'), ('Violeta'), ('Veronica'), ('Valeria'), ('Vanina'), ('Viviana'), ('Yamila'), ('Yanina'), ('Yasmin'),
 ('Yolanda'), ('Yohana'), ('Yair'), ('Yago'), ('Yuliana'), ('Zaira'), ('Zoe'), ('Zulema'), ('Abigail'), ('Adela'),
@@ -70,7 +70,7 @@ VALUES
 ('Marina'), ('Marta'), ('Martina'), ('Matilde'), ('Melanie'), ('Melina'), ('Mercedes'), ('Mia'), ('Milagros'), ('Miriam'),
 ('Mirta'), ('Monica'), ('Morena'), ('Nadia'), ('Naiara'), ('Nancy'), ('Natalia'), ('Nayla'), ('Nerea'), ('Nicole'),
 ('Noelia'), ('Nora'), ('Norma'), ('Olga'), ('Paloma'), ('Pamela'), ('Patricia'), ('Paula'), ('Paz'), ('Pilar'),
-('Priscila'), ('Rafaela'), ('Ramona'), ('Raquel'), ('Rebeca'), ('Regina'), ('Renata'), ('Rita'), ('Rocío'), ('Romina'),
+('Priscila'), ('Rafaela'), ('Ramona'), ('Raquel'), ('Rebeca'), ('Regina'), ('Renata'), ('Rita'), ('RocÃ­o'), ('Romina'),
 ('Rosa'), ('Rosalia'), ('Rosana'), ('Rosario'), ('Roxana'), ('Sabina'), ('Salma'), ('Sandra'), ('Sara'), ('Selena')
 
 
@@ -87,7 +87,7 @@ VALUES
 ('Cisneros'), ('Contreras'), ('Correa'), ('Cortes'), ('Cuevas'), ('Delgado'), ('Diaz'), ('Dominguez'), ('Escobar'), ('Espinoza'),
 ('Fernandez'), ('Figueroa'), ('Flores'), ('Franco'), ('Fuentes'), ('Gallardo'), ('Gimenez'), ('Godoy'), ('Gomez'), ('Gonzalez'),
 ('Guerrero'), ('Gutierrez'), ('Herrera'), ('Ibarra'), ('Juarez'), ('Lopez'), ('Luna'), ('Maldonado'), ('Martinez'), ('Medina'),
-('Mendez'), ('Molina'), ('Monzon'), ('Morales'), ('Moreno'), ('Muñoz'), ('Navarro'), ('Nunez'), ('Ojeda'), ('Ortiz'),
+('Mendez'), ('Molina'), ('Monzon'), ('Morales'), ('Moreno'), ('MuÃ±oz'), ('Navarro'), ('Nunez'), ('Ojeda'), ('Ortiz'),
 ('Pacheco'), ('Paredes'), ('Perez'), ('Quiroga'), ('Ramos'), ('Ramirez'), ('Rios'), ('Rivas'), ('Rivera'), ('Rodriguez'),
 ('Rojas'), ('Romero'), ('Ruiz'), ('Salas'), ('Salazar'), ('Sanchez'), ('Sosa'), ('Suarez'), ('Torres'), ('Vega'),
 ('Vera'), ('Vidal'), ('Villarreal'), ('Villalba'), ('Zamora'), ('Zarate'), ('Barrios'), ('Bermudez'), ('Cano'), ('Carvajal'),
@@ -98,8 +98,8 @@ VALUES
 ('Ballesteros'), ('Barajas'), ('Barbosa'), ('Barreto'), ('Barragan'), ('Barrios'), ('Bautista'), ('Beltran'), ('Bermejo'), ('Bernal'),
 ('Berrocal'), ('Bocanegra'), ('Bonilla'), ('Borja'), ('Briones'), ('Bueno'), ('Bustos'), ('Caballero'), ('Caceres'), ('Calderon'),
 ('Calvo'), ('Canales'), ('Cantero'), ('Cano'), ('Cantu'), ('Caraballo'), ('Carballo'), ('Cardenas'), ('Carranza'), ('Carretero'),
-('Casas'), ('Castañeda'), ('Cazares'), ('Cedillo'), ('Centeno'), ('Cervantes'), ('Chavez'), ('Cifuentes'), ('Colina'), ('Colmenares'),
-('Contreras'), ('Cornejo'), ('Cortez'), ('Cuellar'), ('Curiel'), ('Delvalle'), ('Diaz'), ('Duarte'), ('Dueñas'), ('Encinas'),
+('Casas'), ('CastaÃ±eda'), ('Cazares'), ('Cedillo'), ('Centeno'), ('Cervantes'), ('Chavez'), ('Cifuentes'), ('Colina'), ('Colmenares'),
+('Contreras'), ('Cornejo'), ('Cortez'), ('Cuellar'), ('Curiel'), ('Delvalle'), ('Diaz'), ('Duarte'), ('DueÃ±as'), ('Encinas'),
 ('Enriquez'), ('Escamilla'), ('Esparza'), ('Esteban'), ('Estrada'), ('Fajardo'), ('Farias'), ('Ferrer'), ('Fierro'), ('Fonseca'),
 ('Franco'), ('Galindo'), ('Gallegos'), ('Galvez'), ('Gamboa'), ('Garcia'), ('Garrido'), ('Gavilan'), ('Giron'), ('Gonzales'),
 ('Gracia'), ('Granados'), ('Guardado'), ('Guillen'), ('Guzman'), ('Haro'), ('Hernandez'), ('Herreros'), ('Hidalgo'), ('Huerta'),
@@ -111,14 +111,14 @@ VALUES
 ('Montes'), ('Morales'), ('Moreira'), ('Moscoso'), ('Mosquera'), ('Moya'), ('Munguia'), ('Murillo'), ('Naranjo'), ('Narvaez'),
 ('Navas'), ('Nevarez'), ('Nieto'), ('Noriega'), ('Obando'), ('Obregon'), ('Ocampo'), ('Ochoa'), ('Oliva'), ('Olivares'),
 ('Olivera'), ('Orellana'), ('Ornelas'), ('Ortega'), ('Osorio'), ('Ovalle'), ('Padilla'), ('Palma'), ('Paniagua'), ('Pantoja'),
-('Parra'), ('Pastor'), ('Patiño'), ('Peñaloza'), ('Peralta'), ('Perdomo'), ('Peres'), ('Pichardo'), ('Pimentel'), ('Piña'),
+('Parra'), ('Pastor'), ('PatiÃ±o'), ('PeÃ±aloza'), ('Peralta'), ('Perdomo'), ('Peres'), ('Pichardo'), ('Pimentel'), ('PiÃ±a'),
 ('Plascencia'), ('Polanco'), ('Ponce'), ('Portales'), ('Posadas'), ('Preciado'), ('Puente'), ('Puga'), ('Quezada'), ('Quijano')
 
 
 
 
 -- ============================================
--- INSERTAR 100 USUARIOS ÚNICOS
+-- INSERTAR 100 USUARIOS ÃšNICOS
 -- ============================================
 
 BEGIN TRY
@@ -141,12 +141,12 @@ SELECT *
 FROM Combinaciones;
 
 COMMIT TRANSACTION;
-PRINT 'Inserción exitosa de 100 usuarios.';
+PRINT 'InserciÃ³n exitosa de 100 usuarios.';
 
 END TRY
 BEGIN CATCH
 ROLLBACK TRANSACTION;
-PRINT 'Ocurrió un error. La transacción fue revertida.';
+PRINT 'OcurriÃ³ un error. La transacciÃ³n fue revertida.';
 PRINT ERROR_MESSAGE();
 END CATCH;
 
@@ -154,7 +154,7 @@ END CATCH;
 
 
 -- ============================================
--- INSERTAR 1000 PACIENTES ÚNICOS
+-- INSERTAR 1000 PACIENTES ÃšNICOS
 -- ============================================
 
 BEGIN TRY
@@ -167,7 +167,7 @@ WITH PacientesAleatorios AS
         A.apellido AS apellido_paciente,
         -- DNI aleatorio entre 46.000.000 y 46.999.999
         CAST(46000000 + CAST(RAND(CHECKSUM(NEWID())) * 999999 AS INT) AS INT) AS dni_paciente,
-        -- Teléfono fijo de 10 dígitos
+        -- TelÃ©fono fijo de 10 dÃ­gitos
         1234567890 AS telefono_paciente
     FROM #Nombres N
     CROSS JOIN #Apellidos A
@@ -187,12 +187,12 @@ SELECT nombre_paciente, apellido_paciente, dni_paciente, telefono_paciente
 FROM Pacientes;
 
 COMMIT TRANSACTION;
-PRINT 'Inserción exitosa de 1000 pacientes.';
+PRINT 'InserciÃ³n exitosa de 1000 pacientes.';
 
 END TRY
 BEGIN CATCH
 ROLLBACK TRANSACTION;
-PRINT 'Ocurrió un error. La transacción fue revertida.';
+PRINT 'OcurriÃ³ un error. La transacciÃ³n fue revertida.';
 PRINT ERROR_MESSAGE();
 END CATCH;
 
@@ -203,7 +203,7 @@ DECLARE @idRolMedico INT, @idRolEnfermero INT;
 SELECT @idRolMedico = id_rol FROM Rol WHERE nombre_rol = 'Medico';
 SELECT @idRolEnfermero = id_rol FROM Rol WHERE nombre_rol = 'Enfermero';
 
--- Asignar rol Médico a los primeros 50 usuarios
+-- Asignar rol MÃ©dico a los primeros 50 usuarios
 INSERT INTO Usuario_Rol (id_rol, id_usuario)
 SELECT @idRolMedico, id_usuario
 FROM (
@@ -251,25 +251,25 @@ BEGIN TRY
     WHERE rn = 1;  -- Tomar solo 1 especialidad aleatoria por usuario
 
     COMMIT TRANSACTION;
-    PRINT 'Asignación aleatoria de especialidades por usuario exitosa.';
+    PRINT 'AsignaciÃ³n aleatoria de especialidades por usuario exitosa.';
 
 END TRY
 BEGIN CATCH
     ROLLBACK TRANSACTION;
-    PRINT 'Ocurrió un error. La transacción fue revertida.';
+    PRINT 'OcurriÃ³ un error. La transacciÃ³n fue revertida.';
     PRINT ERROR_MESSAGE();
 END CATCH;
 
 truncate table ficha_medica;
 
 -- ============================================
--- INSERTAR FICHAS MÉDICAS PARA LOS 1000 PACIENTES
+-- INSERTAR FICHAS MÃ‰DICAS PARA LOS 1000 PACIENTES
 -- ============================================
 
 BEGIN TRY
     BEGIN TRANSACTION;
 
-    -- CTE para generar datos aleatorios de forma determinística por paciente
+    -- CTE para generar datos aleatorios de forma determinÃ­stica por paciente
     WITH FichasAleatorias AS
     (
         SELECT
@@ -278,10 +278,10 @@ BEGIN TRY
             DATEFROMPARTS(1980, 1, 1) AS FechaNacimiento,
 
 
-            -- 2. Tipo Sanguíneo aleatorio: Se usa un CASE para evitar que CHOOSE devuelva NULL
-            -- El CHOOSE original podía devolver NULL si el índice era 0 o mayor que 8,
-            -- aunque el módulo se limitaba a 1-8, la generación de números en SQL a veces es tricky.
-            -- Usamos un CASE que fuerza el índice a estar entre 1 y 8.
+            -- 2. Tipo SanguÃ­neo aleatorio: Se usa un CASE para evitar que CHOOSE devuelva NULL
+            -- El CHOOSE original podÃ­a devolver NULL si el Ã­ndice era 0 o mayor que 8,
+            -- aunque el mÃ³dulo se limitaba a 1-8, la generaciÃ³n de nÃºmeros en SQL a veces es tricky.
+            -- Usamos un CASE que fuerza el Ã­ndice a estar entre 1 y 8.
             CASE ABS(CHECKSUM(NEWID())) % 8 + 1
                 WHEN 1 THEN 'A+'
                 WHEN 2 THEN 'A-'
@@ -311,13 +311,13 @@ BEGIN TRY
     FROM FichasAleatorias;
 
     COMMIT TRANSACTION;
-    PRINT 'Inserción exitosa de Fichas Médicas para los 1000 pacientes. ';
+    PRINT 'InserciÃ³n exitosa de Fichas MÃ©dicas para los 1000 pacientes. ';
 
 END TRY
 BEGIN CATCH
     -- Si algo falla, revertir todos los cambios
     IF @@TRANCOUNT > 0
         ROLLBACK TRANSACTION;
-    PRINT 'Ocurrió un error al insertar las Fichas Médicas. La transacción fue revertida.';
+    PRINT 'OcurriÃ³ un error al insertar las Fichas MÃ©dicas. La transacciÃ³n fue revertida.';
     PRINT ERROR_MESSAGE();
 END CATCH;
