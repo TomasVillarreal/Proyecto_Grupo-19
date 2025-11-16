@@ -100,7 +100,22 @@ BEGIN TRY
                     @id_paciente
                 );
 
-                INSERT INTO Registro_Indexado (
+                INSERT INTO Registro_Indexado_Clustered_Sin_Include (
+                    fecha_registro, observaciones,
+                    id_tipo_registro,
+                    id_rol_procedimiento, id_especialidad_procedimiento,
+                    id_rol_usuario, id_usuario, id_especialidad_usuario,
+                    id_paciente
+                )
+                VALUES (
+                    @fecha, @obs,
+                    @id_tipo_registro,
+                    @id_rol_proc, @id_esp_proc,
+                    @id_rol_usuario, @id_usuario, @id_especialidad_usuario,
+                    @id_paciente
+                );
+
+                INSERT INTO Registro_Indexado_Clustered (
                     fecha_registro, observaciones,
                     id_tipo_registro,
                     id_rol_procedimiento, id_especialidad_procedimiento,
@@ -131,4 +146,6 @@ BEGIN CATCH
 END CATCH;
 
 
-select count (*) from registro;
+select count(*) from registro;
+select count(*) from Registro_Indexado_Clustered;
+select count(*) from Registro_Indexado_Clustered_Sin_Include;
