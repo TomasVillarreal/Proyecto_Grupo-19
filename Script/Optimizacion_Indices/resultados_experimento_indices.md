@@ -38,7 +38,7 @@ WHERE fecha_registro BETWEEN '20100101' AND '20150101';
 Ambas consultas devuelven la misma cantidad de filas (109.263 filas), en la misma cantidad de tiempo (00:00:00), sin embargo, al ver el plan de ejecución vemos lo siguiente:
 - Para la primera consulta:
 <p align="center">
-  <img src="Script/Optimizacion_Indices/imgs/prueba1_plan_sinindices.png" alt="Plan de ejecucion para la consulta sobre la tabla sin indices" width="160"/>
+  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/Optimizacion-Indices/Script/Optimizacion_Indices/imgs/prueba1_plan_sinindices.png" alt="Plan sin indices" width="160"/>
 </p>
    
 - Para la segunda consulta:
