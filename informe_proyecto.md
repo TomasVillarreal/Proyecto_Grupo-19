@@ -362,7 +362,7 @@ CREATE TABLE Registro_medicacion
 
   * <h4>Tema: Optimización de consultas a través de índices</h4>
 
-  Este tema se concentra en la mejora de la eficiencia de las consultas SQL, tanto en tiempo de procesamiento por parte de la CPU como el tiempo total que se termina en ejecutar la consulta, y la mejora en eficiencia en cuestiones relacionadas a la lectura de los datos desde la cache y el disco. Se presenta las diferencias en estas cuestiones entre una tabla con indices y una tabla sin índices, para poder ver la mejora.
+  Este tema se concentra en la mejora de la eficiencia de las consultas SQL, tanto en tiempo de procesamiento por parte de la CPU como el tiempo total que se termina en ejecutar la consulta, y la mejora en eficiencia en cuestiones relacionadas a la lectura de los datos desde la cache y el disco, a través del uso de indices. Se presenta las diferencias en estas cuestiones entre una tabla con indices y una tabla sin índices para poder ver la mejora.
   
   Se entra en profuncidad en el tema   <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Optimizacion_Indices">aquí</a>.: 
   
