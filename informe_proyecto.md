@@ -349,8 +349,9 @@ CREATE TABLE Registro_medicacion
 
 
 ```
+###  Diccionario de datos de la base de datos presentada:
 <p style="text-align: justify;">
-  ### Diccionario de datos de la base de datos presentada:
+  
   A continuación, se presenta la ubicación del Diccionario de Datos correspondiente a la base de datos utilizada en el estudio, tal que esta  contiene la estructura completa de las tablas, los tipos de datos, longitudes, restricciones y relaciones empleadas durante el desarrollo del Trabajo Práctico.
 
   <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/main/doc/Anexo_%20Diccionario%20de%20Datos.pdf">Link del diccionario</a>.
