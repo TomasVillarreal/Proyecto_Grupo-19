@@ -349,11 +349,38 @@ CREATE TABLE Registro_medicacion
 
 
 ```
+<p style="text-align: justify;">
+  ### Diccionario de datos de la base de datos presentada:
+  A continuación, se presenta la ubicación del Diccionario de Datos correspondiente a la base de datos utilizada en el estudio, tal que esta  contiene la estructura completa de las tablas, los tipos de datos, longitudes, restricciones y relaciones empleadas durante el desarrollo del Trabajo Práctico.
+
+  <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/main/doc/Anexo_%20Diccionario%20de%20Datos.pdf">Link del diccionario</a>.
+
+  ### Desarrollo de los temas de investigación:
+  Para completar el desarrollo del proyecto se nos planteó un conjunto de temas de investigación que permiten abordar de manera sistemática los objetivos y preguntas definidos en el primer capítulo. Cada uno de estos temas fue trabajado mediante una recopilación de datos y una correspondiente investigacion acerca del tema en cuestión, el desarrollo y ejecución de consultas/codigo SQL que cumpla con el tema investigado, y un posterior registro de los hallazgos.
+  En esta sección se presenta una pequeña introducción a los temas desarrollados y un link para poder llegar a la carpeta donde los temas fueron investigados.
+
+  * <h4>Tema: Optimización de consultas a través de índices</h4>
+
+  Este tema se concentra en la mejora de la eficiencia de las consultas SQL, tanto en tiempo de procesamiento por parte de la CPU como el tiempo total que se termina en ejecutar la consulta, y la mejora en eficiencia en cuestiones relacionadas a la lectura de los datos desde la cache y el disco.
+  
+  Se entra en profuncidad en el tema   <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Optimizacion_Indices">aquí</a>.: 
+  * <h4>Tema: Procedimientos y funciones almacenadas</h4>
+  * <h4>Tema: Manejo de transacciones y transacciones anidadas</h4>
+  * <h4>Tema: Backup y restore. Backup en línea.</h4>
+</p>
+
 ---
+
+
+<a id="capitulo-v-conclusiones"></a>
+## Capítulo V: Conclusiones
+<p>
+  
+</p>
+
 
 <a id="capitulo-vi-link-y-referencias"></a>
 ## Capítulo VI: Link y referencias
-
 <p>
 
 [1] Gobierno de la Provincia de Buenos Aires. Historia de Salud Integrada (HSI). Disponible en: https://www.gba.gob.ar/saludprovincia/historia_de_salud_integrada  
