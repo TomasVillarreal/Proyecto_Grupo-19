@@ -12,7 +12,7 @@ También para poder ver bien las diferencias en tiempos, y otro conjunto de dato
 SET STATISTICS IO ON;
 SET STATISTICS TIME ON;
 ```
-Se pueden ver estas tablas y sus estructuras <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/Optimizacion-Indices/Script/Optimizacion_Indices/scripts_usados/creacion_tabla_indexada.sql">acá</a>.
+Se pueden ver estas tablas y sus estructuras <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Optimizacion_Indices/scripts_usados/creacion_tabla_indexada.sql">acá</a>.
 
 ## Introducción:
 El tema de investigación sobre el cual se realizaron los experimentos aquí propuestos es el de optimización de consultas mediante índices, el cual establece una mejora en eficiencia y tiempo de ejecución entre consultas a través del uso de índices. 
@@ -38,12 +38,12 @@ WHERE fecha_registro BETWEEN '20100101' AND '20150101';
 Ambas consultas devuelven la misma cantidad de filas (109.263 filas), en la misma cantidad de tiempo (00:00:00), sin embargo, al ver el plan de ejecución vemos lo siguiente:
 - Para la primera consulta:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/Optimizacion-Indices/Script/Optimizacion_Indices/imgs/prueba1_plan_sinindices.png" alt="Plan sin indices"/>
+  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/main/Script/Optimizacion_Indices/imgs/prueba1_plan_sinindices.png" alt="Plan sin indices"/>
 </p>
    
 - Para la segunda consulta:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/Optimizacion-Indices/Script/Optimizacion_Indices/imgs/prueba1_plan_conindice.png" alt="Plan de ejecucion para la consulta sobre la tabla con indices"/>
+  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/main/Script/Optimizacion_Indices/imgs/prueba1_plan_conindice.png" alt="Plan de ejecucion para la consulta sobre la tabla con indices"/>
 </p>
    
 Como podemos observar, el motor consideró que hay una MUY significativa diferencia entre los costos de ambas consultas, tal que el motor observó que la primera consulta (la consulta sobre la tabla no indexada) es mucho más pesada que la consulta sobre la tabla con el índice en “fecha_registro”.
@@ -54,7 +54,7 @@ Por el contrario, la segunda consulta se realiza sobre la tabla que si posee un 
 
 Esto se puede ver claramente al ejecutar ambas consultas con el STATISTICS IO/TIME ON, tal que al realizarlo se ve esto:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/Optimizacion-Indices/Script/Optimizacion_Indices/imgs/prueba1_tiempos.png" alt="Estadisticas y tiempos de la prueba con indice vs sin indice"/>
+  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/main/Script/Optimizacion_Indices/imgs/prueba1_tiempos.png" alt="Estadisticas y tiempos de la prueba con indice vs sin indice"/>
 </p>  
 
 Como se puede ver ahí mas claramente, hay una gran diferencia entre ambas. Las mayores diferencias ocurren en:
@@ -84,18 +84,18 @@ WHERE fecha_registro BETWEEN '20100101' AND '20150101';
 Ambas consultas siguen devolviendo las mismas filas que en las pruebas anteriores (109.263), y en la misma cantidad de tiempo (00:00:00), y al ver el plan de ejecución vemos una pecurialidad:
 - Para la primera consulta:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/Optimizacion-Indices/Script/Optimizacion_Indices/imgs/prueba2_plan_sininclude.png" alt="Plan de ejecucion para la consulta sobre la tabla con indice clustered sin columnas de mas"/>
+  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/main/Script/Optimizacion_Indices/imgs/prueba2_plan_sininclude.png" alt="Plan de ejecucion para la consulta sobre la tabla con indice clustered sin columnas de mas"/>
 </p>
    
 - Para la segunda consulta:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/Optimizacion-Indices/Script/Optimizacion_Indices/imgs/prueba2_plan_coninclude.png" alt="Plan de ejecucion para la consulta sobre la tabla con indice clustered con columnas de mas"/>
+  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/main/Script/Optimizacion_Indices/imgs/prueba2_plan_coninclude.png" alt="Plan de ejecucion para la consulta sobre la tabla con indice clustered con columnas de mas"/>
 </p>
  
 Ambas consultas son esencialmente iguales entre sí. Esto queda aun mas en evidencia al ver los tiempos registrados al realizar la consulta:
 
  <p align="center">
-  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/Optimizacion-Indices/Script/Optimizacion_Indices/imgs/prueba2_tiempos.png" alt="Estadisticas y tiempos de la prueba con con indice clustered con include vs sin include"/>
+  <img src="https://raw.githubusercontent.com/TomasVillarreal/Proyecto_Grupo-19/main/Script/Optimizacion_Indices/imgs/prueba2_tiempos.png" alt="Estadisticas y tiempos de la prueba con con indice clustered con include vs sin include"/>
 </p>
  
 Como se pueden observar, tanto los tiempos como las demás estadísticas son esencialmente iguales y hay mínimas diferencias entre sí.
