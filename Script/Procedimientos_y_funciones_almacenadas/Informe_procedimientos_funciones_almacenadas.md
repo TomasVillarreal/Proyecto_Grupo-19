@@ -94,7 +94,7 @@ END;
 
 EXEC celsiusAFahrenheit 20;  -- Para su ejecución.
 ```
-<img src="./Script/Procedimientos_y_funciones_almacenadas/img/Procedimiento%20conversor%20de%20grados%20celsius%20a%20fahrenheit.png" alt="Procedimiento" />
+<img src="Script/Procedimientos_y_funciones_almacenadas/img/Funciones conversor de grados celsius a fahrenheit.png" alt="Procedimiento" />
 
 ---
 
