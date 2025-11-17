@@ -19,14 +19,9 @@ Se evalúa el correcto funcionamiento del bloque TRY/CATCH y de la atomicidad tr
 **Resultado obtenido**
 
 - Primera inserción: múltiples tablas cargadas correctamente dentro de una única transacción.
-
-  ![Imagen que contiene Interfaz de usuario gráfica&#x0A;&#x0A;El contenido generado por IA puede ser incorrecto.](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.001.png)
-
-  ![Interfaz de usuario gráfica, Texto
-
-El contenido generado por IA puede ser incorrecto.]
-
-  ![ref1]
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex1_1.png alt="ex1_1"/>
+</p>
 
 - Segunda inserción: error capturado correctamente, la transacción se revierte por completo y no se crean datos duplicados.
 
@@ -162,3 +157,4 @@ En conjunto, los experimentos confirman que el diseño transaccional implementad
 
 El contenido generado por IA puede ser incorrecto.]: Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.002.png
 [ref1]: Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.003.png
+
