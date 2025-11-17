@@ -28,14 +28,16 @@ Los procesos mencionados están divididos en:
   \-Tarea 4: Creación del Primer Backup del Log (Log1) y definición de la hora de corte (marca de tiempo a utilizar en el escenario de recuperación 1).  
   \-Tarea 5: Inserción del Lote 2 de registros a la tabla Pacientes.   
   \-Tarea 6:  Creación del Segundo Backup del Log (Log2)   
-    
+    El script completo del bloque 1 se encuentra en <a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/main/Script/Backup_en_linea_y_Restore/Scripts_usados/Clinicks_Bloque1_Tareas1-6.sql> este link</a>
+
 * Bloque 2:  tareas 7 y 8  
   \-Tarea 7: simulación de un desastre (borrado completo de la Base de Datos Clinicks\_BD\_I y restauración al punto en el tiempo de finalización del Log 1)\.   
   \-Tarea 8: verificación de la restauración correcta de la estructura de datos y los 20 registros de la tabla de referencia almacenados hasta ese punto.   
-    
+     El script completo del bloque 2 se encuentra en <a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/main/Script/Backup_en_linea_y_Restore/Scripts_usados/Clinicks_Bloque2_tareas7-8.sql> este link</a>
+
 * Bloque 3: Tarea 9   
   \-Tarea 9: simulación de un desastre (borrado completo de la Base de Datos Clinicks\_BD\_I y restauración de la cadena de log (Log 1 y Log2)). Se realiza además una verificación de la restauración correcta de la estructura de datos y los 30 registros de la tabla de referencia almacenados.
-
+ El script completo del bloque 3 se encuentra en <a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/main/Script/Backup_en_linea_y_Restore/Scripts_usados/Clinicks_Bloque3_tarea9.sql> este link</a>
 
 
 
