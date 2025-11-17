@@ -1,4 +1,4 @@
---------------------------------------------------
+use Clinicks_BD_I
 --Verificacion
 SELECT 
 --Informacion del Paciente
@@ -28,4 +28,5 @@ FROM  Paciente as P
     ON R.id_registro = RM.id_registro AND R.id_paciente = RM.id_paciente
     LEFT JOIN Medicacion as M 
     ON RM.id_medicacion = M.id_medicacion
+
 WHERE P.dni_paciente = --47123456 --40000002 --40000003 
