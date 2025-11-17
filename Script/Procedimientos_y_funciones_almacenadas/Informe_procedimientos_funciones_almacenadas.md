@@ -116,7 +116,7 @@ END;
 SELECT dbo.f_celsiusAFahrenheit(19) AS Fahrenheit;  -- Para su ejecución
 ```
 
-<img src="./Script/Procedimientos_y_funciones_almacenadas/img/Funcion_ejemplo2.png" alt="Funcion" />
+<img src="./img/Funcion_ejemplo2.png" alt="Funcion" />
 
 
 ---
