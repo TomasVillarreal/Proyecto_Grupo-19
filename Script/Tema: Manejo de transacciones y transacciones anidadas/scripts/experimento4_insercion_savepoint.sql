@@ -1,3 +1,4 @@
+use Clinicks_BD_I
 -- EXPERIMENTO 4: Prueba de ROLLBACK PARCIAL 
 -- Medicacion Falla
 --------------------------------------------------
@@ -45,7 +46,7 @@ BEGIN CATCH
             --Cerramos la transaccion principal (Paciente, Ficha, Registro) exitosamente.
             COMMIT TRANSACTION 
             PRINT 'EXPERIMENTO 4: ROLLBACK PARCIAL EXITOSO'
-            PRINT 'Paciente y Registro Clínico guardados. Insercion de Medicacion revertida'
+            PRINT 'Paciente y Registro ClÃ­nico guardados. Insercion de Medicacion revertida'
         END
         ELSE
         BEGIN
@@ -55,3 +56,4 @@ BEGIN CATCH
         END
     END
 END CATCH
+
