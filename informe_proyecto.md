@@ -373,8 +373,9 @@ CREATE TABLE Registro_medicacion
   Se profundiza sobre dicho tema <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Procedimientos_y_funciones_almacenadas">aquí</a>.: 
   
   * <h4>Tema: Manejo de transacciones y transacciones anidadas</h4>
+
   * <h4>Tema: Backup y restore. Backup en línea.</h4>
-   En este apartado se realiza análisis detallado de las estrategias de copia de seguridad en línea y la recuperación ante desastres. Esto se logra mediante el uso del Modelo de Recuperación Completo (Full Recovery Model) de SQL Server, el cual permite la implementación de las estrategias de restauración implementadas de forma práctica en esta oportunidad: restauración a un punto en el tiempo específico (Point-in-Time Restore) y la restauración de la cadena completa del log de transacciones. 
+   En este apartado se realiza un análisis detallado de las estrategias de copia de seguridad en línea y de recuperación ante desastres disponibles en SQL Server Management Studio. Implementar alguna de estas opciones de copia de seguridad es crucial para garantizar la integridad de los datos y estructuras pertinentes a la base de datos ante posibles fallas humanas o de infraestructura que puedan corromperlos o eliminar los archivos. A través del Modelo de Recuperación Completo (Full Recovery Model) de SQL Server, es posible aplicar las estrategias de restauración estudiadas en este proyecto : restauración a un punto en el tiempo específico (Point-in-Time Restore) y la restauración de la cadena completa del log de transacciones. 
 Dicha temática es profundizada <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Backup_en_linea_y_Restore">aquí</a>.
 </p>
 ---
