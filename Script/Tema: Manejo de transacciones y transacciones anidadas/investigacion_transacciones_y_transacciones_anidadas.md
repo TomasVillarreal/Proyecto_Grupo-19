@@ -179,7 +179,8 @@ Por otro lado, las transacciones anidadas implementadas mediante savepoints perm
 **10. Fuentes**
 
 \- Microsoft Learn: <https://learn.microsoft.com/es-es/sql/t-sql/language-elements/begin-transaction-transact-sql?view=sql-server-ver16>\
-` `- Video: La magia de las transacciones: <https://youtu.be/keL9-EtE-zE?si=ivUUfk5irjl7k_2e>
+\- Video: La magia de las transacciones: <https://youtu.be/keL9-EtE-zE?si=ivUUfk5irjl7k_2e>\
+
 
 
 
