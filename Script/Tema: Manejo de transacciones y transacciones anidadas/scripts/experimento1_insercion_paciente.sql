@@ -1,4 +1,4 @@
-use Clinicks_BD_I_COPIA
+use Clinicks_BD_I
 
 --Finalidad, si ocurre violacion de principios de pk, o restricciones unique
 --INSERCION DE NUEVO PACIENTE
@@ -35,9 +35,10 @@ BEGIN TRANSACTION
 -----Se prueba error con rollback al querer ingresar mismo paciente con mismos datos-----
 END TRY
 BEGIN CATCH
-    ROLLBACK TRANSACTION; 
-    PRINT '-----------------------------------'
-    PRINT 'El paciente ' + CAST(@dni_paciente_ins AS VARCHAR) + ' ya existe'
-    PRINT ERROR_MESSAGE();
-    PRINT '-----------------------------------'
+Â  Â  ROLLBACK TRANSACTION; 
+Â  Â  PRINT '-----------------------------------'
+Â  Â  PRINT 'El paciente ' + CAST(@dni_paciente_ins AS VARCHAR) + ' ya existe'
+Â  Â  PRINT ERROR_MESSAGE();
+Â  Â  PRINT '-----------------------------------'
+
 END CATCH;
