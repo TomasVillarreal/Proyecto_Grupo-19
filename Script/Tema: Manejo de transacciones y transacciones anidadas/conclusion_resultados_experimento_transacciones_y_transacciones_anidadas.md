@@ -23,9 +23,19 @@ Se evalúa el correcto funcionamiento del bloque TRY/CATCH y de la atomicidad tr
   <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex1_1.png alt="ex1_1"/>
 </p>
 
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex1_2.png alt="ex1_2"/>
+</p>
+
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex1_3.png alt="ex1_3"/>
+</p>
+
 - Segunda inserción: error capturado correctamente, la transacción se revierte por completo y no se crean datos duplicados.
 
-  ![](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.004.png)
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex1_4.png alt="ex1_4"/>
+</p>
 
 **Conclusión del experimento**
 
@@ -46,21 +56,27 @@ Luego se lanza un error intencional mediante THROW para provocar un ROLLBACK com
 
 - Caso 1: El delete se ejecuta con exito.
 
-  ![](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.005.png)
+  <p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex2_1.png alt="ex2_1"/>
+</p>
 
 - Caso 2: No existe el paciente.
 
-  ![](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.006.png)
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex2_2.png alt="ex2_2"/>
+</p>
 
 - Caso 3: El DELETE se ejecuta, pero al generarse el error forzado (THROW 50000) se ejecuta un ROLLBACK total. Todo vuelve a su estado previo: el paciente continúa existiendo, con sus registros y medicación.
 
-  ![Imagen que contiene Interfaz de usuario gráfica&#x0A;&#x0A;El contenido generado por IA puede ser incorrecto.](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.007.png)
-
-  ![Interfaz de usuario gráfica, Texto
-
-El contenido generado por IA puede ser incorrecto.]
-
-  ![ref1]
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex2_3.png alt="ex2_3"/>
+</p>
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex1_2.png alt="ex1_2"/>
+</p>
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex1_3.png alt="ex1_3"/>
+</p>
 
 **Conclusión** **del experimento**
 
@@ -81,21 +97,27 @@ Se realiza la inserción completa de un paciente con todos sus datos, y se agreg
 - El paciente, su ficha y su registro son insertados correctamente.
 - La medicación también se inserta sin errores.
 - Toda la transacción es confirmada con éxito.
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex3_1.png alt="ex3_1"/>
+</p>
 
-  ![Texto&#x0A;&#x0A;El contenido generado por IA puede ser incorrecto.](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.008.png)
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex3_2.png alt="ex3_2"/>
+</p>
 
-  ![](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.009.png)
-
-  ![](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.010.png)
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex3_3.png alt="ex3_3"/>
+</p>
 
 - Error al ingresar paciente que ya existe en la base de datos.
 
-  ![Texto&#x0A;&#x0A;El contenido generado por IA puede ser incorrecto.](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.011.png)
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex3_4.png alt="ex3_4"/>
+</p>
 
 **Conclusión del experimento**
 
 Se verifica que una transacción con SAVEPOINT se comporta igual que una transacción común cuando todas las operaciones tienen éxito, SQL Server incrementa @@TRANCOUNT, ejecuta las instrucciones y realiza COMMIT global sin necesidad de rollback parcial.
-
 
 
 
@@ -115,16 +137,22 @@ Esto activa el SAVEPOINT y permite hacer un rollback parcial solo del paciente, 
 - Medicación: revertida
 - COMMIT final exitoso para la parte válida de la transacción
 
-  ![Texto&#x0A;&#x0A;El contenido generado por IA puede ser incorrecto.](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.012.png)
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex4_1.png alt="ex4_1"/>
+</p>
 
-  ![](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.013.png)
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex4_2.png alt="ex4_2"/>
+</p>
 
-  ![](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.014.png)
-
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex4_3.png alt="ex4_3"/>
+</p>
 - Si se desea agregar paciente con mismo DNI devuelve error.
 
-  ![Texto&#x0A;&#x0A;El contenido generado por IA puede ser incorrecto.](Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.015.png)
-
+<p align="center">
+  <img src=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/img/ex4_4.png alt="ex4_4"/>
+</p>
 **Conclusión del experimento**
 
 Este caso confirma que los SAVEPOINT permiten simular transacciones anidadas, haciendo posible revertir solo una parte de la transacción.\
@@ -149,12 +177,4 @@ En conjunto, los experimentos confirman que el diseño transaccional implementad
 
 
 
-
-
-
-
-[Interfaz de usuario gráfica, Texto
-
-El contenido generado por IA puede ser incorrecto.]: Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.002.png
-[ref1]: Aspose.Words.52393418-7012-49e9-9193-6aa10b3a4a36.003.png
 
