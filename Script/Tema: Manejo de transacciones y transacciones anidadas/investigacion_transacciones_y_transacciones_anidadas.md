@@ -7,6 +7,11 @@ Una transacción es una secuencia de una o más operaciones en una unidad lógic
 
 El presente informe analiza el uso de transacciones y transacciones anidadas. Además, se describe cómo se aplican los principios **ACID** en cada etapa, así como el funcionamiento del control de errores y la gestión de bloques TRY…CATCH.
 
+BEGIN TRANSACTION cuando se está dentro de una transacción, lo que realmente sucede es que @@TRANCOUNT se incrementa. 
+@@TRANCOUNT es una variable que se utiliza para mantener el conteo del nivel de anidamiento de transacciones activas dentro de la sesión actual. Se incrementa en 1 cada vez que se ejecuta una instrucción BEGIN TRANSACTION.
+COMMIT TRANSACTION simplemente decrementa @@TRANCOUNT en 1 (siempre que @@TRANCOUNT > 1). 
+ROLLBACK TRANSACTION, revierte toda la transacción (la que está activa en ese momento) no solamente el “nivel interno”. Aunque se realice BEGIN TRAN, un ROLLBACK sin especificar un marcador deja @@TRANCOUNT a 0 y revierte todo. No se modifica el nivel de aislamiento dentro de una “sub-transacción” en un nuevo contexto completamente distinto.
+
 Sintaxis:
 
 BEGIN TRY
@@ -157,6 +162,7 @@ Por otro lado, las transacciones anidadas implementadas mediante savepoints perm
 
 \- Microsoft Learn: <https://learn.microsoft.com/es-es/sql/t-sql/language-elements/begin-transaction-transact-sql?view=sql-server-ver16>\
 ` `- Video: La magia de las transacciones: <https://youtu.be/keL9-EtE-zE?si=ivUUfk5irjl7k_2e>
+
 
 
 
