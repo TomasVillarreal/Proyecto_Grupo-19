@@ -367,6 +367,11 @@ CREATE TABLE Registro_medicacion
   Se entra en profuncidad en el tema   <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Optimizacion_Indices">aquí</a>.: 
   
   * <h4>Tema: Procedimientos y funciones almacenadas</h4>
+
+  En este tema se trata de los procedimientos y funciones almacenadas, los cuales son componentes esenciales de los sistemas de bases de datos que permiten encapsular lógica de negocio directamente en el servidor. Los procedimientos se emplean para ejecutar operaciones complejas o múltiples acciones, mientras que las funciones devuelven un valor específico utilizado en consultas. Su uso mejora la eficiencia, la seguridad y la organización del código.
+
+  Se profundiza sobre dicho tema <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Procedimientos_y_funciones_almacenadas">aquí</a>.: 
+  
   * <h4>Tema: Manejo de transacciones y transacciones anidadas</h4>
   * <h4>Tema: Backup y restore. Backup en línea.</h4>
 </p>
