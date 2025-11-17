@@ -94,7 +94,7 @@ END;
 
 EXEC celsiusAFahrenheit 20;  -- Para su ejecución.
 ```
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Procedimiento_ejemplo1.png" alt="Procedimiento" />
+<img src="./img/Procedimiento_ejemplo1.png" alt="Procedimiento" />
 
 ---
 
