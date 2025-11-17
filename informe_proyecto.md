@@ -364,7 +364,7 @@ CREATE TABLE Registro_medicacion
 
   Este tema se concentra en la mejora de la eficiencia de las consultas SQL, tanto en tiempo de procesamiento por parte de la CPU como el tiempo total que se termina en ejecutar la consulta, y la mejora en eficiencia en cuestiones relacionadas a la lectura de los datos desde la cache y el disco, a través del uso de indices. Se presenta las diferencias en estas cuestiones entre una tabla con indices y una tabla sin índices para poder ver la mejora.
   
-  Se entra en profuncidad en el tema   <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Optimizacion_Indices">aquí</a>.: 
+  Se entra en profuncidad en el tema   <a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas>aquí</a>.: 
   
   * <h4>Tema: Procedimientos y funciones almacenadas</h4>
 
@@ -373,10 +373,14 @@ CREATE TABLE Registro_medicacion
   Se profundiza sobre dicho tema <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Procedimientos_y_funciones_almacenadas">aquí</a>.: 
   
   * <h4>Tema: Manejo de transacciones y transacciones anidadas</h4>
+En este tema se trato el manejo de las transacciones y transacciones anidadas, la primera es un mecanismo importantes para garantizar que el conjunto de operaciones SQL se ejecute de forma segura bajo el principio de “todo o nada”, asegurando integridad y coherencia en los datos. Las transacciones anidadas, simuladas mediante savepoints, permiten revertir solo una parte del proceso sin afectar la transacción completa, brindando mayor control ante fallos parciales. Cumpliendo ambos con los conceptos ACID.
+
+  Se profundiza sobre dicho tema <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Procedimientos_y_funciones_almacenadas">aquí</a>.: 
 
   * <h4>Tema: Backup y restore. Backup en línea.</h4>
    En este apartado se realiza un análisis detallado de las estrategias de copia de seguridad en línea y de recuperación ante desastres disponibles en SQL Server Management Studio. Implementar alguna de estas opciones de copia de seguridad es crucial para garantizar la integridad de los datos y estructuras pertinentes a la base de datos ante posibles fallas humanas o de infraestructura que puedan corromperlos o eliminar los archivos. A través del Modelo de Recuperación Completo (Full Recovery Model) de SQL Server, es posible aplicar las estrategias de restauración estudiadas en este proyecto : restauración a un punto en el tiempo específico (Point-in-Time Restore) y la restauración de la cadena completa del log de transacciones. 
-Dicha temática es profundizada <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Backup_en_linea_y_Restore">aquí</a>.
+   
+Se profundiza sobre dicho tema <a href="https://github.com/TomasVillarreal/Proyecto_Grupo-19/tree/main/Script/Backup_en_linea_y_Restore">aquí</a>.
 </p>
 ---
 
