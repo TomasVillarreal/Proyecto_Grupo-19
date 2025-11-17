@@ -1,11 +1,11 @@
+use Clinicks_BD_I
 --ELIMINACION PACIENTE EN CASCADA
-
 DECLARE @dni_paciente_elim INT = 40000002 --40000001 
 
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 BEGIN TRY
 BEGIN TRANSACTION
---Eliminar a la paciente usando su DNI único
+--Eliminar a la paciente usando su DNI Ãºnico
    DELETE FROM Paciente
    WHERE dni_paciente = @dni_paciente_elim;
 
@@ -25,7 +25,7 @@ BEGIN TRANSACTION
    BEGIN
 
 -- Si se elimina la fila en Paciente, las filas asociadas en Ficha_medica, 
--- Registro y Registro_medicacion se eliminan automáticamente (CASCADE).
+-- Registro y Registro_medicacion se eliminan automÃ¡ticamente (CASCADE).
     COMMIT TRANSACTION;
     PRINT 'Paciente dado de baja con exito'
    END
@@ -37,7 +37,7 @@ BEGIN CATCH
         PRINT '-----------------------------------'
         PRINT 'No se pudo eliminar al paciente '+ CAST(@dni_paciente_elim AS VARCHAR)
         PRINT ERROR_MESSAGE()
-        PRINT '-----------------------------------'
+Â  Â      PRINT '-----------------------------------'
 
     END
 END CATCH
@@ -72,3 +72,4 @@ ADD CONSTRAINT FK_registro_medicacion_registro FOREIGN KEY (id_registro, id_paci
 REFERENCES Registro(id_registro, id_paciente)
 ON DELETE CASCADE;
 GO
+
