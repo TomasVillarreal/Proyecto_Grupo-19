@@ -7,11 +7,11 @@ Una transacción es una secuencia de una o más operaciones en una unidad lógic
 
 El presente informe analiza el uso de transacciones y transacciones anidadas. Además, se describe cómo se aplican los principios **ACID** en cada etapa, así como el funcionamiento del control de errores y la gestión de bloques TRY…CATCH.
 
-``` sql```
+SIntaxis:
 ``` sql
 BEGIN TRY
 BEGIN TRANSACTION
-`-- Operaciones SQL
+-- Operaciones SQL
 COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
@@ -84,7 +84,7 @@ Sintaxis:
 ``` sql
 BEGIN TRY
 
-`    `BEGIN TRANSACTION
+    BEGIN TRANSACTION
 
 -- Operaciones SQL
 
@@ -125,12 +125,9 @@ SAVE TRANSACTION PuntoControl; -- SAVEPOINT
 -- Operaciones que pueden fallar
 
 IF (condición)
-
-`    `ROLLBACK TRANSACTION PuntoControl  -- Revierte solo hasta el savepoint
-
+ROLLBACK TRANSACTION PuntoControl  -- Revierte solo hasta el savepoint
 ELSE
-
-`    `COMMIT TRANSACTION -- Confirma toda la transacción
+    COMMIT TRANSACTION -- Confirma toda la transacción
 ``` 
 **6. Fragmentos que Representan Cada Concepto**
 
@@ -183,6 +180,7 @@ Por otro lado, las transacciones anidadas implementadas mediante savepoints perm
 
 \- Microsoft Learn: <https://learn.microsoft.com/es-es/sql/t-sql/language-elements/begin-transaction-transact-sql?view=sql-server-ver16>\
 ` `- Video: La magia de las transacciones: <https://youtu.be/keL9-EtE-zE?si=ivUUfk5irjl7k_2e>
+
 
 
 
