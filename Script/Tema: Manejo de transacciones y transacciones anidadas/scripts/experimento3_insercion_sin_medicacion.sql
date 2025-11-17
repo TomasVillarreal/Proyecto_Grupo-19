@@ -1,3 +1,4 @@
+use Clinicks_BD_I
 --EXPERIMENTO 3: Prueba de INSERCION EXITOSA 
 --INSERCION CON MEDICACION OPCIONAL
 --------------------------------------------------
@@ -29,10 +30,11 @@ BEGIN TRY
     VALUES (@id_medicacion_prueba_existente, @id_registro_1, @id_paciente_1)
 
     COMMIT TRANSACTION;
-    PRINT 'EXPERIMENTO 3: Insercion Completa Exitosa (Paciente, Ficha, Registro, Medicación)';
+    PRINT 'EXPERIMENTO 3: Insercion Completa Exitosa (Paciente, Ficha, Registro, MedicaciÃ³n)';
 
 END TRY
 BEGIN CATCH
     IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION
     PRINT 'ERROR EN EXPERIMENTO 3: EL PACIENTE ' +CAST(@dni_test AS VARCHAR)+ ' YA FUE INGRESADO ' + ERROR_MESSAGE()
+
 END CATCH
