@@ -7,7 +7,7 @@ El objetivo es verificar la correcta aplicación de los principios ACID en situa
 Cada experimento se acompañó de la consulta de verificación para confirmar en qué estado quedaron los datos.
 
 
-<a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/scripts/experimento1_insercion_paciente.sql>## Experimento 1</a>.
+<a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/scripts/experimento1_insercion_paciente.sql>## Experimento 1</a>
 
 **Inserción completa y validación de restricciones (DNI = 47123456)**
 
@@ -172,6 +172,7 @@ Los resultados obtenidos confirman que SQL Server implementa correctamente los p
 Los SAVEPOINT permiten manejar errores en secciones específicas (por ejemplo, medicación opcional), lo cual proporciona una mayor robustez que las transacciones tradicionales.
 
 En conjunto, los experimentos confirman que el diseño transaccional implementado es **robusto, integro y seguro**.
+
 
 
 
