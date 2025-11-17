@@ -1,6 +1,6 @@
-﻿**Tema investigación: Manejo de Transacciones y Transacciones Anidadas**
+<h1 align="center">Tema investigación: Manejo de Transacciones y Transacciones Anidadas</h1>
 
-**1. Introducción**
+##1. Introducción
 
 El manejo de transacciones en SQL Server constituye un mecanismo esencial para preservar la integridad, coherencia y confiabilidad de los datos.\
 Una transacción es una secuencia de una o más operaciones en una unidad lógica de trabajo, donde todas las instrucciones deben completarse con éxito. En caso de fallo, SQL Server debe revertir la totalidad de los cambios aplicados antes del punto inicial de la transacción. Garantizando que se cumplan todas o ninguna de las operaciones.
@@ -180,6 +180,7 @@ Por otro lado, las transacciones anidadas implementadas mediante savepoints perm
 
 \- Microsoft Learn: <https://learn.microsoft.com/es-es/sql/t-sql/language-elements/begin-transaction-transact-sql?view=sql-server-ver16>\
 \- Video: La magia de las transacciones: <https://youtu.be/keL9-EtE-zE?si=ivUUfk5irjl7k_2e>\
+
 
 
 
