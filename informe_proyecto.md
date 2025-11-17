@@ -391,9 +391,13 @@ Se profundiza sobre dicho tema <a href="https://github.com/TomasVillarreal/Proye
 <p>
 Basándonos en los resultados de los experimentos, las investigaciones de los temas y la adaptación de los mismos a nuestro proyecto, podemos concluir en que se logró crear un sistema consistente, desde su modelo de datos, hasta su implementación.
 En cuanto a los temas analizados, que fueron propuestos por la cátedra, consideramos que el uso de los mismos serían de gran utilidad para la gestión de nuestro sistema.
+
 Las estrategias de recuperación y backups nos acercan al cumplimiento de uno de los objetivos de nuestro sistema que es la digitalización de los datos de los pacientes dentro de la clínica, asegurando un correcto resguardo de los mismos en otra unidad de almacenamiento.
+
 La optimización de consultas mediante índices nos ayudó a mejorar el rendimiento al realizar consultas en la base de datos teniendo gran cantidad de pacientes registrados y registrándose a diario, así como también los profesionales de la clínica y todos los datos en conjunto.
+
 En cuanto a mejoras en la eficiencia, los procedimientos y funciones almacenadas se vuelven una gran herramienta para situaciones de uso cotidiano, como cálculos de dosis de medicamentos, informes médicos y reportes, reduciendo el tiempo de respuesta de los valores esperados y brindando una presentación de los datos más amigable.
+
 Por el lado de las transacciones y transacciones anidadas, cumplirían la función de proveer una integridad y consistencia de datos en situaciones donde tengan lugar fallas internas del sistema o que no dependan de él, como un corte de luz en la ciudad, evitando la pérdida de datos.
 </p>
 
