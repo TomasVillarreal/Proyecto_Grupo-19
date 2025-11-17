@@ -94,8 +94,7 @@ END;
 
 EXEC celsiusAFahrenheit 20;  -- Para su ejecución.
 ```
-Imagen 1: Procedimiento conversor de grados celsius a fahrenheit
-(espacio para URL)
+<img src="Script/Procedimientos_y_funciones_almacenadas/img/Procedimiento conversor de grados celsius a fahrenheit.png" alt="Procedimiento"/>
 
 ---
 
@@ -117,8 +116,8 @@ END;
 SELECT dbo.f_celsiusAFahrenheit(19) AS Fahrenheit;  -- Para su ejecución
 ```
 
-Imagen 2: ejecución de la función que convierte grados celsius a fahrenheit
-(espacio para URL)
+<img src="Script/Procedimientos_y_funciones_almacenadas/img/Funciones conversor de grados celsius a fahrenheit.png" alt="Funcion"/>
+
 
 ---
 <h2>Conclusión</h2>
