@@ -1,13 +1,14 @@
-﻿**Conclusión de los resultados del experimento de las transacciones y transacciones anidadas**
+﻿## Conclusión de los resultados del experimento de las transacciones y transacciones anidadas
 
-**Introducción**
+## Introducción
 
 En esta sección se presentan los resultados obtenidos tras ejecutar diversos experimentos orientados a evaluar el comportamiento de las transacciones en SQL Server, junto con el manejo de errores, la eliminación en cascada y el uso de transacciones anidadas mediante SAVEPOINT.\
 El objetivo es verificar la correcta aplicación de los principios ACID en situaciones reales: inserciones completas, inserciones fallidas, rollback total, rollback parcial, y eliminación con ON DELETE CASCADE.\
 Cada experimento se acompañó de la consulta de verificación para confirmar en qué estado quedaron los datos.
 
 
-<a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/scripts/experimento1_insercion_paciente.sql>## Experimento 1</a>
+## Experimento 1 
+<a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/scripts/experimento1_insercion_paciente.sql>Link experimento 1</a>
 
 **Inserción completa y validación de restricciones (DNI = 47123456)**
 
@@ -43,7 +44,9 @@ Se evalúa el correcto funcionamiento del bloque TRY/CATCH y de la atomicidad tr
 Este experimento confirma que la atomicidad se cumple: o se insertan todas las tablas o no se inserta ninguna.\
 Además, se evidencia que TRY/CATCH gestiona adecuadamente las excepciones y evita estados inconsistentes.
 
-**Experimento 2**
+
+## Experimento 2
+<a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/scripts/experimento2_eliminar_paciente.sql>Link experimento 2</a>
 
 **Eliminación en cascada con ROLLBACK forzado (DNI = 47123456)**
 
@@ -85,7 +88,8 @@ Este experimento demuestra que la durabilidad queda subordinada al COMMIT.\
 Si una transacción que contenía una eliminación en cascada no llega a confirmarse, SQL Server revierte todo, preservando completamente la consistencia.
 
 
-**Experimento 3** 
+## Experimento 3
+<a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/scripts/experimento3_insercion_sin_medicacion.sql>Link experimento 3</a>
 
 **Inserción con medicación opcional (Caso exitoso, DNI = 40000002)**
 
@@ -121,8 +125,8 @@ Se realiza la inserción completa de un paciente con todos sus datos, y se agreg
 Se verifica que una transacción con SAVEPOINT se comporta igual que una transacción común cuando todas las operaciones tienen éxito, SQL Server incrementa @@TRANCOUNT, ejecuta las instrucciones y realiza COMMIT global sin necesidad de rollback parcial.
 
 
-
-**Experimento 4**
+## Experimento 4
+<a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/scripts/experimento4_insercion_savepoint.sql>Link experimento 4</a>
 
 **Rollback parcial: falla en medicación (DNI = 40000003)**
 
@@ -160,7 +164,7 @@ Este caso confirma que los SAVEPOINT permiten simular transacciones anidadas, ha
 Demuestra que SQL Server mantiene la atomicidad “por segmentos” si así se define en la lógica del desarrollador.
 
 
-**Conclusión General de los Experimentos**
+## Conclusión General de los Experimentos
 
 Los resultados obtenidos confirman que SQL Server implementa correctamente los principios ACID cuando se utilizan transacciones y control de errores de manera adecuada:
 
@@ -172,6 +176,9 @@ Los resultados obtenidos confirman que SQL Server implementa correctamente los p
 Los SAVEPOINT permiten manejar errores en secciones específicas (por ejemplo, medicación opcional), lo cual proporciona una mayor robustez que las transacciones tradicionales.
 
 En conjunto, los experimentos confirman que el diseño transaccional implementado es **robusto, integro y seguro**.
+
+## Verificacion para experimentos
+<a href=https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/Manejo-de-transacciones-y-transacciones-anidadas/Script/Tema%3A%20Manejo%20de%20transacciones%20y%20transacciones%20anidadas/scripts/verificacion_para_experimentos.sql>Link verificacion</a>
 
 
 
