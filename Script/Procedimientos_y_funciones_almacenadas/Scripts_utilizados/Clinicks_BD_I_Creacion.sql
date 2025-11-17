@@ -1,0 +1,513 @@
+CREATE DATABASE Clinicks_BD_I;
+
+USE Clinicks_BD_I;
+
+CREATE TABLE Paciente
+(
+  id_paciente INT IDENTITY(1,1) NOT NULL,
+  nombre_paciente VARCHAR(100) NOT NULL,
+  apellido_paciente VARCHAR(100) NOT NULL,
+  dni_paciente INT NOT NULL,
+  telefono_paciente INT NOT NULL,
+  CONSTRAINT PK_paciente PRIMARY KEY (id_paciente),
+  CONSTRAINT CK_paciente_nombre_paciente CHECK (nombre_paciente LIKE '%[A-Za-zÁÉÍÓÚáéíóúÑñ -]%' 
+       AND nombre_paciente NOT LIKE '%[^A-Za-zÁÉÍÓÚáéíóúÑñ -]%'),
+  CONSTRAINT CK_paciente_apellido_paciente CHECK (apellido_paciente LIKE '%[A-Za-zÁÉÍÓÚáéíóúÑñ -]%' 
+       AND apellido_paciente NOT LIKE '%[^A-Za-zÁÉÍÓÚáéíóúÑñ -]%'),
+  CONSTRAINT UQ_paciente_dni_paciente UNIQUE (dni_paciente)
+);
+
+-- Se agrega la columna fecha_nacimiento
+ALTER TABLE Paciente
+ADD fecha_nacimiento DATE NOT NULL;
+
+-- Se agrega la constraint para validar la fecha de nacimiento
+ALTER TABLE Paciente
+ADD CONSTRAINT CK_paciente_fecha_nacimiento
+CHECK (fecha_nacimiento <= GETDATE() AND fecha_nacimiento >= DATEADD(YEAR, -120, GETDATE()));
+
+
+
+CREATE TABLE Ficha_medica
+(
+  id_paciente INT NOT NULL,
+  fecha_creacion DATE NOT NULL CONSTRAINT DF_fecha_creacion_ficha DEFAULT GETDATE(),
+  tipo_sanguineo VARCHAR(3) NOT NULL,
+  estatura INT NOT NULL,
+  peso FLOAT NOT NULL,
+  CONSTRAINT PK_ficha_medica PRIMARY KEY (id_paciente),
+  CONSTRAINT FK_ficha_medica_paciente FOREIGN KEY (id_paciente) REFERENCES Paciente(id_paciente),
+  CONSTRAINT CK_ficha_medica_tipo_sanguineo CHECK (tipo_sanguineo IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-')),
+  CONSTRAINT CK_ficha_medica_estatura CHECK (estatura > 0),
+  CONSTRAINT CK_ficha_medica_peso CHECK (peso > 0)
+);
+
+
+CREATE TABLE Usuario
+(
+  id_usuario INT IDENTITY(1,1) NOT NULL,
+  nombre_usuario VARCHAR(200) NOT NULL,
+  apellido_usuario VARCHAR(200) NOT NULL,
+  email_usuario VARCHAR(200) NOT NULL,
+  password VARCHAR(200) NOT NULL,
+  dni_usuario INT NOT NULL,
+  CONSTRAINT PK_usuario PRIMARY KEY (id_usuario),
+  CONSTRAINT CK_usuario_nombre_usuario CHECK (nombre_usuario LIKE '%[A-Za-zÁÉÍÓÚáéíóúÑñ -]%' 
+       AND nombre_usuario NOT LIKE '%[^A-Za-zÁÉÍÓÚáéíóúÑñ -]%'),
+  CONSTRAINT CK_usuario_apellido_usuario CHECK (apellido_usuario LIKE '%[A-Za-zÁÉÍÓÚáéíóúÑñ -]%' 
+       AND apellido_usuario NOT LIKE '%[^A-Za-zÁÉÍÓÚáéíóúÑñ -]%'),
+  CONSTRAINT UQ_usuario_email_usuario UNIQUE (email_usuario),
+  CONSTRAINT CK_usuario_email_formato CHECK (email_usuario LIKE '%_@%_._%'),
+  CONSTRAINT UQ_usuario_dni_usuario UNIQUE (dni_usuario)
+);
+
+
+CREATE TABLE Rol
+(
+  id_rol INT IDENTITY(1,1) NOT NULL,
+  nombre_rol VARCHAR(200) NOT NULL,
+  CONSTRAINT PK_rol PRIMARY KEY (id_rol),
+  CONSTRAINT UQ_rol_nombre_rol UNIQUE (nombre_rol)
+);
+
+
+CREATE TABLE Medicacion
+(
+  id_medicacion INT IDENTITY(1,1) NOT NULL,
+  nombre_medicacion VARCHAR(200) NOT NULL,
+  dosis_medicacion INT NOT NULL,
+  CONSTRAINT PK_medicacion PRIMARY KEY (id_medicacion),
+  CONSTRAINT CK_medicacion_nombre_medicacion CHECK (nombre_medicacion LIKE '%[A-Za-zÑñ]%'
+      AND nombre_medicacion NOT LIKE '%[^A-Za-zÑñ -]%'
+      AND nombre_medicacion NOT LIKE '%  %'),
+  CONSTRAINT UQ_medicacion_nombre_medicacion UNIQUE (nombre_medicacion),
+  CONSTRAINT CK_medicacion_dosis CHECK (dosis_medicacion > 0)
+);
+
+
+CREATE TABLE Tipo_registro
+(
+  id_tipo_registro INT IDENTITY(1,1) NOT NULL,
+  nombre_registro VARCHAR(200) NOT NULL,
+  CONSTRAINT PK_tipo_registro PRIMARY KEY (id_tipo_registro),
+  CONSTRAINT CK_tipo_registro_nombre_registro CHECK (nombre_registro LIKE '%[A-Za-zÑñ]%'
+      AND nombre_registro NOT LIKE '%[^A-Za-zÑñ -]%'
+      AND nombre_registro NOT LIKE '%  %'),
+  CONSTRAINT UQ_tipo_registro_nombre_registro UNIQUE (nombre_registro)
+);
+
+
+CREATE TABLE Especialidad
+(
+  id_especialidad INT IDENTITY(1,1) NOT NULL,
+  nombre_especialidad VARCHAR(100) NOT NULL,
+  CONSTRAINT PK_especialidad PRIMARY KEY (id_especialidad),
+  CONSTRAINT CK_especialidad_nombre_especialidad CHECK (nombre_especialidad LIKE '%[A-Za-zÑñ]%'
+      AND nombre_especialidad NOT LIKE '%[^A-Za-zÑñ -]%'
+      AND nombre_especialidad NOT LIKE '%  %'),
+  CONSTRAINT UQ_especialidad_nombre_especialidad UNIQUE (nombre_especialidad)
+);
+
+
+CREATE TABLE Rol_especialidad
+(
+  id_rol INT NOT NULL,
+  id_especialidad INT NOT NULL,
+  CONSTRAINT PK_rol_especialidad PRIMARY KEY (id_rol, id_especialidad),
+  CONSTRAINT FK_rol_especialidad_rol FOREIGN KEY (id_rol) REFERENCES Rol(id_rol),
+  CONSTRAINT FK_rol_especialidad_especialidad FOREIGN KEY (id_especialidad) REFERENCES Especialidad(id_especialidad)
+);
+
+
+CREATE TABLE Registro_especialidad
+(
+  id_tipo_registro INT NOT NULL,
+  id_rol INT NOT NULL,
+  id_especialidad INT NOT NULL,
+  CONSTRAINT PK_registro_especialidad PRIMARY KEY (id_tipo_registro, id_rol, id_especialidad),
+  CONSTRAINT FK_registro_especialidad_tipo_registro FOREIGN KEY (id_tipo_registro) REFERENCES Tipo_registro(id_tipo_registro),
+  CONSTRAINT FK_registro_especialidad_rol_especialidad FOREIGN KEY (id_rol, id_especialidad) 
+      REFERENCES Rol_especialidad(id_rol, id_especialidad)
+);
+
+
+CREATE TABLE Usuario_Rol
+(
+  id_rol INT NOT NULL,
+  id_usuario INT NOT NULL,
+  CONSTRAINT PK_usuario_rol PRIMARY KEY (id_rol, id_usuario),
+  CONSTRAINT FK_usuario_rol_rol FOREIGN KEY (id_rol) REFERENCES Rol(id_rol),
+  CONSTRAINT FK_usuario_rol_usuario FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+);
+
+
+CREATE TABLE Usuario_rol_especialidad
+(
+  id_rol INT NOT NULL,
+  id_usuario INT NOT NULL,
+  id_especialidad INT NOT NULL,
+  CONSTRAINT PK_usuario_rol_especialidad PRIMARY KEY (id_rol, id_usuario, id_especialidad),
+  CONSTRAINT FK_usuario_rol_especialidad_usuario_rol FOREIGN KEY (id_rol, id_usuario) REFERENCES Usuario_Rol(id_rol, id_usuario),
+  CONSTRAINT FK_usuario_rol_especialidad_rol_especialidad FOREIGN KEY (id_rol, id_especialidad) REFERENCES Rol_especialidad(id_rol, id_especialidad)
+);
+
+
+CREATE TABLE Registro
+(
+  id_registro INT IDENTITY(1,1) NOT NULL,
+  fecha_registro DATE NOT NULL CONSTRAINT DF_fecha_registro DEFAULT GETDATE(),
+  observaciones VARCHAR(255) NOT NULL,
+  id_tipo_registro INT NOT NULL,
+  id_rol_procedimiento INT NOT NULL,
+  id_especialidad_procedimiento INT NOT NULL,
+  id_rol_usuario INT NOT NULL,
+  id_usuario INT NOT NULL,
+  id_especialidad_usuario INT NOT NULL,
+  id_paciente INT NOT NULL,
+  CONSTRAINT PK_registro PRIMARY KEY (id_registro, id_paciente),
+  CONSTRAINT FK_registro_registro_especialidad FOREIGN KEY (id_tipo_registro, id_rol_procedimiento, id_especialidad_procedimiento) 
+      REFERENCES Registro_especialidad(id_tipo_registro, id_rol, id_especialidad),
+  CONSTRAINT FK_registro_usuario_rol_especialidad FOREIGN KEY (id_rol_usuario, id_usuario, id_especialidad_usuario) 
+      REFERENCES Usuario_rol_especialidad(id_rol, id_usuario, id_especialidad),
+  CONSTRAINT FK_registro_ficha_paciente FOREIGN KEY (id_paciente) REFERENCES Ficha_medica(id_paciente)
+);
+
+
+CREATE TABLE Registro_medicacion
+(
+  id_medicacion INT NOT NULL,
+  id_registro INT NOT NULL,
+  id_paciente INT NOT NULL,
+  CONSTRAINT PK_registro_medicacion PRIMARY KEY (id_medicacion, id_registro, id_paciente),
+  CONSTRAINT FK_registro_medicacion_medicacion FOREIGN KEY (id_medicacion) REFERENCES Medicacion(id_medicacion),
+  CONSTRAINT FK_registro_medicacion_registro FOREIGN KEY (id_registro, id_paciente) 
+      REFERENCES Registro(id_registro, id_paciente)
+);
+
+------------------------------------------------------------------ FIN CREACION --------------------------------------------------------------------------
+------------------------------------------------------------------ COMIENZO CARGA DATOS ------------------------------------------------------------------ 
+
+INSERT INTO Rol (nombre_rol) VALUES ('Medico'), ('Enfermero'), ('Adminstrativo');
+
+INSERT INTO Especialidad (nombre_especialidad)
+VALUES
+-- Especialidades para enfermeros
+('Enfermeria Pediatrica'),
+('Enfermeria Quirurgica'),
+('Enfermeria Geriatrica'),
+('Enfermeria en Emergencias'),
+('Enfermeria en Salud Mental'),
+
+-- Especialidades para médicos
+('Cardiologia'),
+('Neurologia'),
+('Pediatria'),
+('Traumatologia'),
+('Dermatologia');
+
+INSERT INTO Rol_especialidad (id_rol, id_especialidad)
+VALUES
+-- Enfermeros (Rol = 2)
+(2, 1), -- Enfermeria Pediatrica
+(2, 2), -- Enfermeria Quirurgica
+(2, 3), -- Enfermeria Geriatrica
+(2, 4), -- Enfermeria en Emergencias
+(2, 5), -- Enfermeria en Salud Mental
+
+-- Medicos (Rol = 1)
+(1, 6), -- Cardiologia
+(1, 7), -- Neurologia
+(1, 8), -- Pediatria
+(1, 9), -- Traumatologia
+(1, 10); -- Dermatologia
+
+INSERT INTO Tipo_registro (nombre_registro)
+VALUES
+-- Enfermeria Pediatrica
+('Control de signos vitales en ninos'),
+('Registro de medicacion pediatrica'),
+('Evaluacion de crecimiento y desarrollo'),
+('Atencion de heridas leves'),
+('Educacion sanitaria a padres'),
+
+-- Enfermeria Quirurgica
+('Preparacion preoperatoria del paciente'),
+('Control postoperatorio inmediato'),
+('Registro de material esterilizado'),
+('Monitoreo intraoperatorio'),
+('Evaluacion de recuperacion anestesica'),
+
+-- Enfermeria Geriatrica
+('Control de presion arterial en adultos mayores'),
+('Administracion de medicacion geriatrica'),
+('Evaluacion del estado nutricional'),
+('Registro de caidas'),
+('Seguimiento de ulceras por presion'),
+
+-- Enfermeria en Emergencias
+('Atencion inicial de trauma'),
+('Control de via aerea'),
+('Registro de reanimacion cardiopulmonar'),
+('Evaluacion primaria del paciente'),
+('Informe de traslado a cuidados intensivos'),
+
+-- Enfermeria en Salud Mental
+('Valoracion del estado emocional'),
+('Registro de conducta agresiva'),
+('Control de tratamiento psiquiatrico'),
+('Acompanamiento terapeutico'),
+('Informe de evolucion psicologica'),
+
+-- Cardiologia
+('Electrocardiograma'),
+('Control de presion arterial'),
+('Prueba de esfuerzo'),
+('Consulta cardiologica inicial'),
+('Monitoreo de ritmo cardiaco'),
+
+-- Neurologia
+('Evaluacion neurologica basal'),
+('Registro de reflejos motores'),
+('Control de crisis convulsivas'),
+('Informe de tomografia cerebral'),
+('Consulta de seguimiento neurologico'),
+
+-- Pediatria
+('Consulta pediatrica general'),
+('Control de vacunacion infantil'),
+('Diagnostico de infeccion respiratoria'),
+('Evaluacion nutricional infantil'),
+('Registro de fiebre en ninos'),
+
+-- Traumatologia
+('Evaluacion de fractura'),
+('Control de inmovilizacion'),
+('Registro de cirugia ortopedica'),
+('Rehabilitacion traumatologica'),
+('Consulta de seguimiento posquirurgico'),
+
+-- Dermatologia
+('Evaluacion de lesion cutanea'),
+('Control de tratamiento dermatologico'),
+('Aplicacion de crema medicada'),
+('Registro de biopsia de piel'),
+('Consulta dermatologica general');
+
+INSERT INTO Registro_especialidad (id_tipo_registro, id_rol, id_especialidad)
+VALUES
+-- Enfermeria Pediatrica (id_especialidad = 1, rol = 2)
+(1, 2, 1),
+(2, 2, 1),
+(3, 2, 1),
+(4, 2, 1),
+(5, 2, 1),
+
+-- Enfermeria Quirurgica (id_especialidad = 2, rol = 2)
+(6, 2, 2),
+(7, 2, 2),
+(8, 2, 2),
+(9, 2, 2),
+(10, 2, 2),
+
+-- Enfermeria Geriatrica (id_especialidad = 3, rol = 2)
+(11, 2, 3),
+(12, 2, 3),
+(13, 2, 3),
+(14, 2, 3),
+(15, 2, 3),
+
+-- Enfermeria en Emergencias (id_especialidad = 4, rol = 2)
+(16, 2, 4),
+(17, 2, 4),
+(18, 2, 4),
+(19, 2, 4),
+(20, 2, 4),
+
+-- Enfermeria en Salud Mental (id_especialidad = 5, rol = 2)
+(21, 2, 5),
+(22, 2, 5),
+(23, 2, 5),
+(24, 2, 5),
+(25, 2, 5),
+
+-- Cardiologia (id_especialidad = 6, rol = 1)
+(26, 1, 6),
+(27, 1, 6),
+(28, 1, 6),
+(29, 1, 6),
+(30, 1, 6),
+
+-- Neurologia (id_especialidad = 7, rol = 1)
+(31, 1, 7),
+(32, 1, 7),
+(33, 1, 7),
+(34, 1, 7),
+(35, 1, 7),
+
+-- Pediatria (id_especialidad = 8, rol = 1)
+(36, 1, 8),
+(37, 1, 8),
+(38, 1, 8),
+(39, 1, 8),
+(40, 1, 8),
+
+-- Traumatologia (id_especialidad = 9, rol = 1)
+(41, 1, 9),
+(42, 1, 9),
+(43, 1, 9),
+(44, 1, 9),
+(45, 1, 9),
+
+-- Dermatologia (id_especialidad = 10, rol = 1)
+(46, 1, 10),
+(47, 1, 10),
+(48, 1, 10),
+(49, 1, 10),
+(50, 1, 10);
+
+
+
+--MEDICACION (10 unidades)
+INSERT INTO Medicacion (nombre_medicacion, dosis_medicacion) VALUES
+('Amoxicilina', 500),  -- id_medicacion = 1
+('Ibuprofeno', 600),   -- id_medicacion = 2
+('Omeprazol', 20),     -- id_medicacion = 3
+('Paracetamol', 750),  -- id_medicacion = 4
+('Losartán', 50),      -- id_medicacion = 5
+('Aspirina', 100),     -- id_medicacion = 6
+('Sertralina', 50),    -- id_medicacion = 7
+('Furosemida', 40),    -- id_medicacion = 8
+('Metformina', 850),   -- id_medicacion = 9
+('Diazepam', 10);      -- id_medicacion = 10
+GO
+
+--USUARIO (10 unidades - 5 Medicos, 5 Enfermeros)
+INSERT INTO Usuario (nombre_usuario, apellido_usuario, email_usuario, password, dni_usuario) VALUES
+-- Médicos (Esp. 6 a 10)
+('Adriana', 'Gomez', 'a.gomez@clinic.com', 'pass1', 20111222),  -- id_usuario = 1
+('Braulio', 'Flores', 'b.flores@clinic.com', 'pass2', 21333444), -- id_usuario = 2
+('Carla', 'Rojas', 'c.rojas@clinic.com', 'pass3', 22555666),   -- id_usuario = 3
+('Daniel', 'Sosa', 'd.sosa@clinic.com', 'pass4', 23777888),   -- id_usuario = 4
+('Elena', 'Vera', 'e.vera@clinic.com', 'pass5', 24999000),    -- id_usuario = 5
+-- Enfermeros (Esp. 1 a 5)
+('Fabian', 'Luna', 'f.luna@clinic.com', 'pass6', 25121314),   -- id_usuario = 6
+('Gloria', 'Mendez', 'g.mendez@clinic.com', 'pass7', 26454647), -- id_usuario = 7
+('Hugo', 'Nuñez', 'h.nunez@clinic.com', 'pass8', 27787980),    -- id_usuario = 8
+('Irma', 'Ortiz', 'i.ortiz@clinic.com', 'pass9', 28010203),    -- id_usuario = 9
+('Javier', 'Paz', 'j.paz@clinic.com', 'pass10', 29343536);    -- id_usuario = 10
+GO
+
+--USUARIO_ROL (ID_ROL = 1 para Medico, 2 para Enfermeros)
+INSERT INTO Usuario_Rol (id_rol, id_usuario)
+SELECT 1, id_usuario FROM Usuario WHERE id_usuario BETWEEN 1 AND 5; -- Medicos (ID=1)
+INSERT INTO Usuario_Rol (id_rol, id_usuario)
+SELECT 2, id_usuario FROM Usuario WHERE id_usuario BETWEEN 6 AND 10; -- Enfermeros (ID=2)
+GO
+
+--USUARIO_ROL_ESPECIALIDAD
+INSERT INTO Usuario_rol_especialidad (id_rol, id_usuario, id_especialidad) VALUES
+-- Medicos (Rol=1, Especialidades 6 a 10)
+(1, 1, 6), (1, 2, 7), (1, 3, 8), (1, 4, 9), (1, 5, 10),
+-- Enfermeros (Rol=2, Especialidades 1 a 5)
+(2, 6, 1), (2, 7, 2), (2, 8, 3), (2, 9, 4), (2, 10, 5);
+GO
+
+--PACIENTE (10 unidades)
+INSERT INTO Paciente (nombre_paciente, apellido_paciente, dni_paciente, telefono_paciente, fecha_nacimiento) VALUES
+('Pedro', 'Acosta', 30101202, 1123456789, '1980-01-10'),  -- id_paciente = 1
+('Laura', 'Blanco', 31303404, 1134567890, '1985-03-15'),  -- id_paciente = 2
+('Martin', 'Castro', 32505606, 1145678901, '1990-05-20'), -- id_paciente = 3
+('Sofia', 'Diaz', 33707808, 1156789012, '1992-07-25'),    -- id_paciente = 4
+('Ricardo', 'Esposito', 34909091, 1167890123, '1978-09-30'), -- id_paciente = 5
+('Valentina', 'Fernandez', 35111213, 1178901234, '1995-11-12'), -- id_paciente = 6
+('Gaston', 'Gimenez', 36313435, 1189012345, '1988-02-18'),  -- id_paciente = 7
+('Julieta', 'Herrera', 37515657, 1190123456, '1993-04-22'),  -- id_paciente = 8
+('Andres', 'Ibarra', 38717879, 1101234567, '1982-06-05'),    -- id_paciente = 9
+('Paula', 'Jara', 39919092, 1112345678, '1997-08-14');      -- id_paciente = 10
+GO
+-- FICHA_MEDICA (10 unidades)
+INSERT INTO Ficha_medica (id_paciente, tipo_sanguineo, estatura, peso) VALUES
+(1, 'O+', 175, 78.5),
+(2, 'A-', 162, 55.2),
+(3, 'B+', 180, 90.1),
+(4, 'AB+', 168, 63.8),
+(5, 'O-', 170, 75.0),
+(6, 'A+', 155, 50.9),
+(7, 'B-', 185, 95.7),
+(8, 'AB-', 172, 69.4),
+(9, 'O+', 178, 82.3),
+(10, 'A-', 160, 58.6);
+GO
+
+--REGISTRO (10 unidades - Usando ID_ROL Fijos 1 y 2)
+INSERT INTO Registro (
+    observaciones, id_tipo_registro,
+    id_rol_procedimiento, id_especialidad_procedimiento,
+    id_rol_usuario, id_usuario, id_especialidad_usuario, id_paciente
+) VALUES
+('Control de presion arterial. Se mantiene medicacion.', 27, 1, 6, 1, 1, 6, 1),
+('Control de signos vitales post-operatorio. Estable.', 1, 2, 1, 2, 6, 1, 2),
+('Consulta de seguimiento neurologico. Sin cambios significativos.', 35, 1, 7, 1, 2, 7, 3),
+('Curacion de herida simple. Se retiran puntos en 5 días.', 7, 2, 2, 2, 7, 2, 4),
+('Diagnostico de infección respiratoria. Se receta antibiótico.', 38, 1, 8, 1, 3, 8, 5),
+('Control de PA en adulto mayor. Se administra diuretico.', 11, 2, 3, 2, 8, 3, 6),
+('Control de inmovilizacion por fractura. Evolucion favorable.', 42, 1, 9, 1, 4, 9, 7),
+('Atención inicial de trauma leve en extremidad.', 16, 2, 4, 2, 9, 4, 8),
+('Control de tratamiento dermatológico tópico. Buena respuesta.', 47, 1, 10, 1, 5, 10, 9),
+('Control de tratamiento psiquiatrico. Se evalua estado de animo.', 23, 2, 5, 2, 10, 5, 10);
+GO
+
+--REGISTRO_MEDICACION 
+INSERT INTO Registro_medicacion (id_medicacion, id_registro, id_paciente) VALUES
+(5, 1, 1),  -- Registro 1 (Paciente 1) -> Losartan (ID=5)
+(1, 5, 5),  -- Registro 5 (Paciente 5) -> Amoxicilina (ID=1)
+(8, 6, 6),  -- Registro 6 (Paciente 6) -> Furosemida (ID=8)
+(7, 10, 10); -- Registro 10 (Paciente 10) -> Sertralina (ID=7)
+GO
+------------------------------------------------------------------ FIN CARGA DATOS ------------------------------------------------------------------------------------
+------------------------------------------------------------------ COMIENZO 2 REGISTROS POR PACIENTE ------------------------------------------------------------------ 
+INSERT INTO Registro (
+    fecha_registro, observaciones, id_tipo_registro,
+    id_rol_procedimiento, id_especialidad_procedimiento,
+    id_rol_usuario, id_usuario, id_especialidad_usuario, id_paciente
+) VALUES
+--PACIENTE 1 
+('2025-11-04', 'Monitoreo de ritmo cardíaco 24h. Leves arritmias detectadas.', 30, 1, 6, 1, 1, 6, 1), -- Medico 1 (Cardiologia)
+('2025-11-05', 'Control de medicación. Paciente refiere sentirse bien con dosis actual.', 12, 2, 3, 2, 8, 3, 1), -- Enfermero 8 (Enf. Geriatrica)
+
+--PACIENTE 2 
+('2025-11-04', 'Evaluación de crecimiento y desarrollo. Talla en percentil 50.', 3, 2, 1, 2, 6, 1, 2), -- Enfermero 6 (Enf. Pediatrica)
+('2025-11-05', 'Consulta de seguimiento neurológico. Se descarta migraña.', 35, 1, 7, 1, 2, 7, 2), -- Medico 2 (Neurologia)
+
+--PACIENTE 3
+('2025-11-04', 'Rehabilitación post-cirugía. Se realizan ejercicios de movilidad.', 44, 1, 9, 1, 4, 9, 3), -- Medico 4 (Traumatologia)
+('2025-11-05', 'Evaluación de recuperación anestésica tras procedimiento menor.', 10, 2, 2, 2, 7, 2, 3), -- Enfermero 7 (Enf. Quirurgica)
+
+--PACIENTE 4 
+('2025-11-04', 'Control de tratamiento dermatológico tópico. Lesión mejorando.', 47, 1, 10, 1, 5, 10, 4), -- Médico 5 (Dermatología)
+('2025-11-05', 'Evaluación del estado nutricional. Dieta balanceada recomendada.', 13, 2, 3, 2, 8, 3, 4), -- Enfermero 8 (Enf. Geriátrica)
+
+--PACIENTE 5 
+('2025-11-04', 'Informe de traslado a cuidados intensivos (observación).', 20, 2, 4, 2, 9, 4, 5), -- Enfermero 9 (Enf. Emergencias)
+('2025-11-05', 'Diagnóstico de infección respiratoria alta. Tratamiento oral.', 38, 1, 8, 1, 3, 8, 5), -- Médico 3 (Pediatria)
+
+--PACIENTE 6 
+('2025-11-04', 'Registro de medicación pediátrica (analgésicos).', 2, 2, 1, 2, 6, 1, 6), -- Enfermero 6 (Enf. Pediátrica)
+('2025-11-05', 'Consulta de seguimiento posquirúrgico (Traumatología).', 45, 1, 9, 1, 4, 9, 6), -- Médico 4 (Traumatología)
+
+--PACIENTE 7
+('2025-11-04', 'Preparación preoperatoria. Vía periférica instalada.', 6, 2, 2, 2, 7, 2, 7), -- Enfermero 7 (Enf. Quirurgica)
+('2025-11-05', 'Consulta de seguimiento por gastroenteritis.', 36, 1, 8, 1, 3, 8, 7), -- Medico 3 (Pediatra)
+
+--PACIENTE 8 
+('2025-11-04', 'Registro de conducta agresiva. Intervención exitosa.', 22, 2, 5, 2, 10, 5, 8), -- Enfermero 10 (Enf. Salud Mental)
+('2025-11-05', 'Prueba de esfuerzo realizada. Resultados satisfactorios.', 28, 1, 6, 1, 1, 6, 8), -- Medico 1 (Cardiologia)
+
+--PACIENTE 9
+('2025-11-04', 'Atención inicial de trauma leve en miembro inferior.', 16, 2, 4, 2, 9, 4, 9), -- Enfermero 9 (Enf. Emergencias)
+('2025-11-05', 'Aplicación de crema medicada en zona afectada.', 48, 1, 10, 1, 5, 10, 9), -- Médico 5 (Dermatología)
+
+--PACIENTE 10 
+('2025-11-04', 'Informe de evolución psicológica. Mejora notable en ánimo.', 25, 2, 5, 2, 10, 5, 10), -- Enfermero 10 (Enf. Salud Mental)
+('2025-11-05', 'Registro de fiebre. Se toman medidas de control térmico.', 40, 1, 8, 1, 3, 8, 10); -- Medico 3 (Pediatria)
+GO
