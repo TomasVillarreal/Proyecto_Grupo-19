@@ -72,12 +72,12 @@ SELECT *
 FROM Paciente
 ORDER BY id_paciente DESC;
 ```
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Ejecucion_proc_insertar_paciente.png" alt="ejecucion del procedimiento insert" />
+<img src="./img/Ejecucion_proc_insertar_paciente.png" alt="ejecucion del procedimiento insert" />
 
 
 En cuanto a la eficiencia, se puede ver cómo que ambas ejecuciones presentan una eficiencia del 50%, por lo que la conclusión que puedo sacar es que, de acuerdo a los datos de nuestro procedimiento y la sentencia directa del INSERT, ninguna es más eficiente que la otra.
 
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Eficiencia_procedimiento_insert.png" alt="eficiencia procedimiento insert" />
+<img src="./img/Eficiencia_procedimiento_insert.png" alt="eficiencia procedimiento insert" />
 
 
 ---
@@ -140,11 +140,11 @@ END;
 EXEC usp_eliminar_medicacion @nombre_medicacion = 'Diazepam';
 ```
 
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Ejecución_proc_eliminar.png" alt="ejecucion del procedimiento delete" />
+<img src="./img/Ejecución_proc_eliminar.png" alt="ejecucion del procedimiento delete" />
 
 En cuanto a la eficiencia, se puede ver que la eliminación directa es un 6% más eficaz que el procedimiento almacenado, por lo que en este caso en particular sería la mejor opción, realizar eliminaciones mediante la sentencia directa DELETE en lugar de utilizar un procedimiento, aunque al ser la diferencia de eficiencia tan baja, no sería equivocado, en nuestro caso y con nuestros datos, utilizar el procedimiento.
 
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Eficiencia_procedimiento_delete.png" alt="eficiencia procedimiento delete" />
+<img src="./img/Eficiencia_procedimiento_delete.png" alt="eficiencia procedimiento delete" />
 
 --- 
 
@@ -210,13 +210,13 @@ END;
 EXEC usp_ActualizarUsuario @dni_usuario = 20111222, @nombre_usuario = 'adri', @apellido_usuario = 'gomes', @correo_usuario = 'adrianagomes@mail.com';
 
 ```
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Ejecucion_proc_update.png" alt="ejecucion del procedimiento update" />
+<img src="./img/Ejecucion_proc_update.png" alt="ejecucion del procedimiento update" />
 
 
 En cuanto a la eficiencia, se puede ver cómo que ambas ejecuciones presentan una eficiencia del 50%, por lo que la conclusión que puedo sacar es que, de acuerdo a los datos de nuestro procedimiento y la sentencia directa del UPDATE, ninguna es más eficiente que la otra. En este caso, sería arbitrario el uso de alguna de ellas.
 
 imagen eficiencia update
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Eficiencia_procedimiento_update.png" alt="eficiencia procedimiento update" />
+<img src="./img/Eficiencia_procedimiento_update.png" alt="eficiencia procedimiento update" />
 
 
 ---
@@ -298,7 +298,7 @@ SELECT *  FROM dbo.f_dosis_ibuprofeno_hasta_18(15, 65.5, 10);
 
 ```
 
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Ejecucion_fn_ibuprofeno.png" alt="ejecucion de la funcion del calculo de dosis de ibuprofeno" />
+<img src="./img/Ejecucion_fn_ibuprofeno.png" alt="ejecucion de la funcion del calculo de dosis de ibuprofeno" />
 
 ---
 
@@ -361,7 +361,7 @@ SELECT dbo.fn_IMC(30101202) AS IMC_Paciente;
 ```
 
 
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Ejecucion_fn_IMC.png" alt="ejecucion de la funcion del calculo del IMC de un paciente" />
+<img src="./img/Ejecucion_fn_IMC.png" alt="ejecucion de la funcion del calculo del IMC de un paciente" />
 
 
 ---
@@ -411,6 +411,6 @@ FROM fn_pacientesAtendidos(21333444);
 ```
 
 
-<img src="Script/Procedimientos_y_funciones_almacenadas/img/Ejecucion_fn_registros_profesional.png" alt="ejecucion de la funcion que devuelve los pacientes atendidos por un profesional" />
+<img src="./img/Ejecucion_fn_registros_profesional.png" alt="ejecucion de la funcion que devuelve los pacientes atendidos por un profesional" />
 
 ---
