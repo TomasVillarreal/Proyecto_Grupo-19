@@ -99,7 +99,7 @@ Al ejecutar dicho comando, si fue posible realizar las verificaciones planificad
 # Resultados del Bloque 3: 
 
 <p align="center">
-  <img src="https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/main/Script/Backup_en_linea_y_Restore/img_aplicacion_practica_backup/recovery%20ultimo%20(backup%20full%20%2Blog%201%20%2Blog%202).png" alt="Recovery Escenario 3"/>
+  <img src="https://github.com/TomasVillarreal/Proyecto_Grupo-19/blob/main/Script/Backup_en_linea_y_Restore/img_aplicacion_practica_backup/verificacion%20tarea%209.png" alt="Recovery Escenario 3"/>
 </p> 
 
 En la puesta en práctica del escenario 2, no fue necesaria la implementación del comando RESTORE DATABASE \[Clinicks\_BD\_I\] WITH RECOVERY, puesto que al realizar el restore de la cadena de logs completa no había transacciones activas por las cuales permanecer en estado de espera-  
