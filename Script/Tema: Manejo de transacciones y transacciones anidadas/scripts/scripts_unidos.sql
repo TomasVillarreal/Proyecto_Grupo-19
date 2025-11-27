@@ -35,11 +35,11 @@ BEGIN TRANSACTION
 -----Se prueba error con rollback al querer ingresar mismo paciente con mismos datos-----
 END TRY
 BEGIN CATCH
-    ROLLBACK TRANSACTION; 
-    PRINT '-----------------------------------'
-    PRINT 'El paciente ' + CAST(@dni_paciente_ins AS VARCHAR) + ' ya existe'
-    PRINT ERROR_MESSAGE();
-    PRINT '-----------------------------------'
+Â  Â  ROLLBACK TRANSACTION; 
+Â  Â  PRINT '-----------------------------------'
+Â  Â  PRINT 'El paciente ' + CAST(@dni_paciente_ins AS VARCHAR) + ' ya existe'
+Â  Â  PRINT ERROR_MESSAGE();
+Â  Â  PRINT '-----------------------------------'
 END CATCH;
 -------------------------------------------------------------------
 
@@ -51,7 +51,7 @@ DECLARE @dni_paciente_elim INT = 40000003 --40000001
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 BEGIN TRY
 BEGIN TRANSACTION
---Eliminar a la paciente usando su DNI único
+--Eliminar a la paciente usando su DNI Ãºnico
    DELETE FROM Paciente
    WHERE dni_paciente = @dni_paciente_elim;
 
@@ -71,7 +71,7 @@ BEGIN TRANSACTION
    BEGIN
 
 -- Si se elimina la fila en Paciente, las filas asociadas en Ficha_medica, 
--- Registro y Registro_medicacion se eliminan automáticamente (CASCADE).
+-- Registro y Registro_medicacion se eliminan automÃ¡ticamente (CASCADE).
     COMMIT TRANSACTION;
     PRINT 'Paciente dado de baja con exito'
    END
@@ -83,7 +83,7 @@ BEGIN CATCH
         PRINT '-----------------------------------'
         PRINT 'No se pudo eliminar al paciente '+ CAST(@dni_paciente_elim AS VARCHAR)
         PRINT ERROR_MESSAGE()
-        PRINT '-----------------------------------'
+Â  Â      PRINT '-----------------------------------'
 
     END
 END CATCH
@@ -125,7 +125,7 @@ BEGIN TRY
     VALUES (@id_medicacion_prueba_existente, @id_registro_1, @id_paciente_1)
 
     COMMIT TRANSACTION;
-    PRINT 'EXPERIMENTO 3: Insercion Completa Exitosa (Paciente, Ficha, Registro, Medicación)';
+    PRINT 'EXPERIMENTO 3: Insercion Completa Exitosa (Paciente, Ficha, Registro, MedicaciÃ³n)';
 
 END TRY
 BEGIN CATCH
@@ -181,7 +181,7 @@ BEGIN CATCH
             --Cerramos la transaccion principal (Paciente, Ficha, Registro) exitosamente.
             COMMIT TRANSACTION 
             PRINT 'EXPERIMENTO 4: ROLLBACK PARCIAL EXITOSO'
-            PRINT 'Paciente y Registro Clínico guardados. Insercion de Medicacion revertida'
+            PRINT 'Paciente y Registro ClÃ­nico guardados. Insercion de Medicacion revertida'
         END
         ELSE
         BEGIN
@@ -192,6 +192,17 @@ BEGIN CATCH
     END
 END CATCH
 
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
 
 
 
@@ -199,7 +210,7 @@ END CATCH
 
 
 
-
+--VERIFICACION Y ON DELETE CASCADE
 --------------------------------------------------
 --Verificacion
 
@@ -268,11 +279,6 @@ ON DELETE CASCADE;
 GO
 
 
-
-
-
-DELETE FROM Paciente WHERE dni_paciente = 40000002;
-DELETE FROM Paciente WHERE dni_paciente = 40000003;
 
 
 
