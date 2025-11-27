@@ -1,5 +1,6 @@
 use Clinicks_BD_I_COPIA
-
+--EXPERIMENTO 1
+---------------------------------------------
 --Finalidad, si ocurre violacion de principios de pk, o restricciones unique
 --INSERCION DE NUEVO PACIENTE
 DECLARE @dni_paciente_ins INT = 47123456  
@@ -43,6 +44,8 @@ BEGIN CATCH
 END CATCH;
 -------------------------------------------------------------------
 
+--EXPERIMENTO 2
+-------------------------------------------------------------------
 
 --ELIMINACION PACIENTE EN CASCADA
 
@@ -277,6 +280,7 @@ ADD CONSTRAINT FK_registro_medicacion_registro FOREIGN KEY (id_registro, id_paci
 REFERENCES Registro(id_registro, id_paciente)
 ON DELETE CASCADE;
 GO
+
 
 
 
